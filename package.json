@@ -1,0 +1,25 @@
+{
+  "name": "hacktown-2026",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen": "node tooling/generate.mjs",
+    "slides": "node tooling/slides.mjs",
+    "site:dev": "npm run gen && astro dev --root site",
+    "site:build": "npm run gen && astro build --root site",
+    "site:preview": "astro preview --root site",
+    "deploy": "npm run site:build && wrangler deploy"
+  },
+  "devDependencies": {
+    "@astrojs/starlight": "^0.41.11",
+    "@slidev/cli": "^52.19.1",
+    "@slidev/theme-default": "^0.25.0",
+    "astro": "^7.2.10",
+    "mermaid": "^11.17.2",
+    "sharp": "^0.35.4",
+    "wrangler": "^4.128.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

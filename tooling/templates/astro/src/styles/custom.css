@@ -1,0 +1,22 @@
+:root {
+  --sl-color-accent-low: #17301f;
+  --sl-color-accent: #2f6f4f;
+  --sl-color-accent-high: #b9e2c9;
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: #cdeadb;
+  --sl-color-accent: #2f6f4f;
+  --sl-color-accent-high: #1b4030;
+}
+
+div.mermaid {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+div.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}

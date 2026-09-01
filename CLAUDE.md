@@ -2,79 +2,126 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> `README.md` é um symlink para este arquivo.
+
 ## O que é este repositório
 
-Materiais das palestras do **Newton no Hacktown 2026**. Não é um produto: é um repositório de
-conteúdo com três saídas geradas a partir de **uma única fonte da verdade em Markdown**.
+Materiais das palestras de Newton no **Hacktown 2026**. Não é um produto: é um repositório de
+conteúdo em Markdown com duas saídas geradas — decks Slidev e um site estático Starlight.
 
-As duas palestras:
-
-| Pasta | Título |
+| Pasta | Palestra |
 | --- | --- |
 | `palestras/01-trabalho-invisivel-vendas/` | O trabalho invisível que a IA está tirando das equipes de vendas |
 | `palestras/02-o-que-sobra-sem-llm/` | O que sobra quando você tira o LLM do seu agente? |
 
-**Idioma de todo o conteúdo: português do Brasil.** Código, nomes de arquivo e identificadores em
-inglês/kebab-case; texto voltado ao público sempre em pt-BR.
+**Todo texto voltado ao público é pt-BR.** Nomes de arquivo, identificadores e código em
+inglês/kebab-case.
 
-## Arquitetura: core → slides → site
-
-O princípio central e a razão de existir da estrutura:
+## A regra que organiza tudo: `slides/` e `site/` são descartáveis
 
 ```
-palestras/<slug>/core/*.md   ← FONTE DA VERDADE (única)
-        ├──► palestras/<slug>/slides/slides.md   (Slidev — apresentação)
-        └──► site/                               (Astro Starlight — consulta pós-palestra)
+palestras/<slug>/core/*.md   ← FONTE DA VERDADE (versionada)
+tooling/                     ← gerador + templates (versionado)
+        │  npm run gen
+        ├──► slides/<slug>/  (Slidev)     — .gitignore
+        └──► site/           (Starlight)  — .gitignore
 ```
 
-Regras que decorrem disso:
-
-- **Nunca edite conteúdo dentro de `slides/` ou `site/`.** Se o texto de uma ideia mudou, ele muda
-  em `core/` e as duas saídas reaproveitam. `slides/` e `site/` contêm apresentação/layout, não prosa.
-- `core/` é dividido em arquivos numerados por seção (`01-abertura.md`, `02-...`), com frontmatter
-  YAML. A numeração define a ordem tanto do deck quanto da navegação do site.
-- Slides puxam seções do core via `src:` do Slidev; o site puxa via content loader do Astro apontando
-  para `../palestras/*/core`. Ou seja: o mesmo arquivo `.md` é lido por dois consumidores — mudanças
-  em frontmatter quebram os dois, verifique ambos.
-- Slides não são o core inteiro: um slide mostra o *gancho*, o site mostra o *desenvolvimento*.
-  O core carrega os dois níveis; a camada de apresentação escolhe o que expor.
-
-## Stack
-
-- **Slides**: [Slidev](https://sli.dev) — Markdown, Mermaid nativo, modo apresentador, export PDF.
-- **Site**: [Astro](https://astro.build) + Starlight — estático, busca via Pagefind.
-- **Deploy do site**: Cloudflare (Workers Static Assets ou Pages) via `wrangler`.
-- **Diagramas**: Mermaid como padrão (vive no Markdown, versionável, renderiza nos dois destinos).
-  Excalidraw só para os 2–3 diagramas conceituais "hero" que Mermaid não expressa bem — exporte
-  `.svg` para `palestras/<slug>/assets/`.
-- **Workspace**: pnpm workspaces (`site/` e cada `palestras/*/slides/` são pacotes).
+- **Nunca edite nada dentro de `slides/` ou `site/`.** Esses diretórios são apagados e reescritos
+  a cada `npm run gen`; não estão no git. `tooling/generate.mjs` é o único código autorizado a
+  escrever neles.
+- Mudança de **conteúdo** → `palestras/<slug>/core/`.
+- Mudança de **tema, layout ou configuração** → `tooling/templates/slidev/` ou
+  `tooling/templates/astro/`, copiados verbatim para a saída.
+- Mudança em **como o core vira slide/página** → `tooling/generate.mjs`.
+- Não há workspaces. Todas as dependências vivem no `package.json` da raiz, e os projetos
+  gerados não têm `package.json` próprio: eles resolvem a partir do `node_modules` da raiz
+  (que o npm mantém plano). Astro roda com `--root site`; Slidev recebe o caminho do
+  `slides.md`. Gerenciador de pacotes: **npm**.
 
 ## Comandos
 
-> Nada foi instalado ainda. Ao fazer o scaffold, mantenha estes nomes de script para que os comandos
-> abaixo continuem válidos.
-
 ```bash
-pnpm install
+npm install
+npm run gen                       # regenera slides/ e site/ a partir do core
 
-# Slides de uma palestra (dev com hot reload em http://localhost:3030)
-pnpm --filter slides-01 dev
-pnpm --filter slides-01 build         # SPA estática
-pnpm --filter slides-01 export        # PDF
+npm run slides 01                 # dev do deck (aceita slug inteiro ou prefixo "01")
+npm run slides 01 build           # SPA estática em slides/<slug>/dist
+npm run slides 02 export          # PDF (requer: npm i -D playwright-chromium)
 
-# Site de consulta
-pnpm --filter site dev
-pnpm --filter site build              # gera site/dist
-pnpm --filter site preview
+npm run site:dev                  # gen + astro dev
+npm run site:build                # gen + astro build → site/dist
+npm run site:preview
 
-# Deploy do site no Cloudflare
-pnpm --filter site build && npx wrangler deploy
+npm run deploy                    # site:build + wrangler deploy (Workers Static Assets)
 ```
+
+`slides` e `site:*` rodam `gen` antes — não é preciso chamá-lo à mão.
+
+## Contrato de conteúdo do `core/`
+
+Cada arquivo em `core/` é **uma seção**, e a ordem alfabética do nome (`01-`, `02-`…) define a
+ordem no deck e no sidebar do site. Frontmatter:
+
+```yaml
+---
+titulo: Anatomia do trabalho invisível   # obrigatório — vira título da página e do sidebar
+resumo: uma linha                        # description do site
+slide:
+  layout: default                        # layout padrão dos slides desta seção
+notas: |                                 # vira nota do apresentador no Slidev; NÃO vai pro site
+  Não correr aqui.
+fontes:                                  # renderizado como "## Fontes" no site; não vai pro slide
+  - https://exemplo.com
+---
+```
+
+O corpo alimenta as duas saídas de formas diferentes:
+
+- **Site** recebe o corpo inteiro.
+- **Deck** recebe apenas o que estiver entre marcadores. Cada bloco vira um slide:
+
+```md
+<!-- slide:center -->
+# O gancho, curto o suficiente para caber na tela
+<!-- /slide -->
+
+O desenvolvimento fica fora do bloco: contexto, números, argumento. Só o site mostra isso.
+```
+
+`<!-- slide:center -->` sobrescreve o layout da seção; `<!-- slide -->` usa o padrão. Uma seção
+pode ter zero blocos (só site) ou vários (vários slides).
+
+## Diagramas
+
+Mermaid é o padrão e vive dentro do core, em bloco ` ```mermaid `. O gerador trata cada destino
+de um jeito:
+
+- **Slidev**: o bloco passa intacto — mermaid é nativo lá.
+- **Site**: `mermaidToDiv()` converte para `<div class="mermaid">` com HTML escapado, porque o
+  Expressive Code do Starlight engoliria o fence como bloco de código. A renderização é
+  client-side em `tooling/templates/astro/src/components/Head.astro` (override do `<head>` do
+  Starlight), que reage a troca de tema via `data-theme`.
+
+Para os poucos diagramas conceituais que Mermaid faz mal, exporte SVG do Excalidraw para
+`palestras/<slug>/assets/` — o gerador copia para o deck e para `site/public/<slug>/`.
+
+## Armadilhas conhecidas
+
+- `tooling/lib/yaml.mjs` é um parser de **subconjunto** de YAML (escalares, mapa aninhado, lista
+  de escalares, blocos `|` e `>`). Não há dependência de YAML no projeto. Se o frontmatter
+  precisar de algo além disso, o formato do core provavelmente está complexo demais — mas se for
+  mesmo necessário, troque por uma lib em vez de esticar o parser. O parser é sem dependências
+  de propósito: `npm run gen` funciona em um clone antes do `npm install`.
+- Uma linha começando com `---` dentro de um bloco `<!-- slide -->` quebra a separação de slides
+  do Slidev. Use `***` para régua horizontal.
+- Starlight ≥ 0.39 não aceita mais `{ label, autogenerate }` no sidebar; tem que ser
+  `{ label, items: [{ autogenerate }] }`.
+- `resetDir()` preserva `node_modules`, `dist` e `.astro` ao limpar a saída, para não invalidar
+  o cache de build a cada `gen`.
 
 ## Convenções de conteúdo
 
-- Uma ideia por seção de `core/`; se uma seção passa de ~400 palavras, ela provavelmente são duas.
-- Blocos de código e diagramas Mermaid ficam no `core/` — nunca duplicados no deck.
-- Números, benchmarks e afirmações sobre produto precisam de fonte no frontmatter da seção
-  (`sources:`). O site expõe isso; o slide não. Não invente métricas.
-- Notas do apresentador ficam no deck (`<!-- -->` do Slidev), não no core — são efêmeras da fala.
+- Uma ideia por seção. Passou de ~400 palavras, provavelmente são duas seções.
+- Número, benchmark ou afirmação sobre o mercado precisa de `fontes:`. Não invente métricas —
+  o site expõe a procedência e a palestra depende dela.

@@ -1,0 +1,24 @@
+/* Copiado para cada deck gerado. Ajustes visuais das apresentações vivem aqui. */
+:root {
+  --slidev-theme-primary: #2f6f4f;
+}
+
+.slidev-layout h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.slidev-layout.cover h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.slidev-layout ul > li {
+  margin: 0.35rem 0;
+}
+
+/* Diagramas mermaid ocupam a largura útil do slide. */
+.slidev-layout .mermaid {
+  display: flex;
+  justify-content: center;
+}

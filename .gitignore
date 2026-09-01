@@ -1,0 +1,16 @@
+node_modules/
+.DS_Store
+*.log
+
+# Saídas geradas — reconstruídas por `pnpm gen` a partir de palestras/*/core
+/slides/
+/site/
+
+# Build / cache
+dist/
+.astro/
+.slidev/
+.wrangler/
+.env
+.env.*
+!.env.example

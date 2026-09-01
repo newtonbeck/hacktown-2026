@@ -1,0 +1,29 @@
+---
+// Override do <head> do Starlight só para renderizar os diagramas mermaid que o
+// gerador converteu em <div class="mermaid">.
+import Default from '@astrojs/starlight/components/Head.astro';
+---
+
+<Default><slot /></Default>
+
+<script>
+  const nodes = document.querySelectorAll<HTMLElement>('div.mermaid');
+  if (nodes.length) {
+    const { default: mermaid } = await import('mermaid');
+    const render = async () => {
+      const dark = document.documentElement.dataset.theme === 'dark';
+      mermaid.initialize({ startOnLoad: false, theme: dark ? 'dark' : 'neutral' });
+      for (const node of nodes) {
+        node.dataset.source ??= node.textContent ?? '';
+        node.removeAttribute('data-processed');
+        node.textContent = node.dataset.source;
+      }
+      await mermaid.run({ nodes: Array.from(nodes) });
+    };
+    await render();
+    new MutationObserver(render).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+  }
+</script>
