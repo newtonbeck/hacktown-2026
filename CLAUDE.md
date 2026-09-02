@@ -104,7 +104,29 @@ de um jeito:
   Starlight), que reage a troca de tema via `data-theme`.
 
 Para os poucos diagramas conceituais que Mermaid faz mal, exporte SVG do Excalidraw para
-`palestras/<slug>/assets/` — o gerador copia para o deck e para `site/public/<slug>/`.
+`palestras/<slug>/assets/` — vale a mesma regra da seção seguinte.
+
+## Imagens
+
+Arquivos binários (prints `.png`, `.gif`, SVG, diagramas gerados) ficam em
+`palestras/<slug>/assets/` e são **sempre referenciados como `assets/arquivo.png`** no core:
+
+```md
+![Chat do agente](assets/chat.png)
+<img src="assets/run.gif" class="plain">
+```
+
+O gerador reescreve o prefixo para cada saída, porque cada uma serve o arquivo de um lugar:
+`/assets/…` no deck (que vira `public/` do Slidev) e `/<slug>/assets/…` no site. Nunca escreva
+esses prefixos à mão no core — só `assets/`.
+
+- Imagem em bloco `<!-- slide -->` aparece nas duas saídas; fora do bloco, só no site.
+- CSS dos templates limita a altura (`360px`) e põe uma moldura leve. `class="full"` sobe o
+  limite (imagem sem título), `class="plain"` tira a moldura (diagrama com fundo transparente).
+- Para print ao lado de texto, use os layouts do tema com atributo no marcador:
+  `<!-- slide:image-right image=assets/chat.png -->`. Qualquer `chave=valor` no marcador vira
+  frontmatter daquele slide; `slide:` no frontmatter da seção serve de default para todos.
+- Prints legíveis a 5 metros: recorte a região que importa em vez de mostrar a tela inteira.
 
 ## Armadilhas conhecidas
 
@@ -115,6 +137,8 @@ Para os poucos diagramas conceituais que Mermaid faz mal, exporte SVG do Excalid
   de propósito: `npm run gen` funciona em um clone antes do `npm install`.
 - Uma linha começando com `---` dentro de um bloco `<!-- slide -->` quebra a separação de slides
   do Slidev. Use `***` para régua horizontal.
+- GIF não anima em `npm run slides <slug> export`: o PDF congela o primeiro quadro. Se a
+  animação for o argumento do slide, apresente pelo deck, não pelo PDF.
 - Starlight ≥ 0.39 não aceita mais `{ label, autogenerate }` no sidebar; tem que ser
   `{ label, items: [{ autogenerate }] }`.
 - `resetDir()` preserva `node_modules`, `dist` e `.astro` ao limpar a saída, para não invalidar

@@ -6,10 +6,13 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { ROOT, readPalestras, stripSlideMarkers } from './lib/core.mjs';
+import { ROOT, readPalestras, stripSlideMarkers, rewriteAssets, assetPath } from './lib/core.mjs';
 import { yamlScalar } from './lib/yaml.mjs';
 
 const TEMPLATES = path.join(ROOT, 'tooling', 'templates');
+/** Prefixo público dos arquivos de `palestras/<slug>/assets/` em cada saída. */
+const DECK_ASSETS = '/assets/';
+const siteAssets = (slug) => `/${slug}/assets/`;
 const SLIDES_OUT = path.join(ROOT, 'slides');
 const SITE_OUT = path.join(ROOT, 'site');
 
@@ -70,23 +73,29 @@ function generateSlides(palestras) {
 
     let count = 0;
     for (const section of p.sections) {
+      // `slide:` da seção vira default; o marcador do bloco sobrescreve chave a chave.
+      const { layout: sectionLayout, ...sectionAttrs } = section.data.slide ?? {};
       for (const slide of section.slides) {
         count++;
         lines.push('', '---');
-        lines.push(`layout: ${slide.layout ?? section.data.slide?.layout ?? 'default'}`);
+        lines.push(`layout: ${slide.layout ?? sectionLayout ?? 'default'}`);
+        for (const [key, value] of Object.entries({ ...sectionAttrs, ...slide.attrs })) {
+          lines.push(`${key}: ${yamlScalar(assetPath(String(value), DECK_ASSETS))}`);
+        }
         lines.push('---', '');
-        lines.push(slide.content);
+        lines.push(rewriteAssets(slide.content, DECK_ASSETS));
         if (section.data.notas) {
-          lines.push('', '<!--', section.data.notas, '-->');
+          lines.push('', '<!--', rewriteAssets(section.data.notas, DECK_ASSETS), '-->');
         }
       }
     }
 
     write(path.join(deckDir, 'slides.md'), lines.join('\n'));
     fs.cpSync(path.join(TEMPLATES, 'slidev'), deckDir, { recursive: true });
-    for (const asset of ['assets']) {
-      const src = path.join(p.dir, asset);
-      if (fs.existsSync(src)) fs.cpSync(src, path.join(deckDir, asset), { recursive: true });
+    // Slidev serve `public/` do diretório do slides.md na raiz da URL.
+    const deckAssets = path.join(p.dir, 'assets');
+    if (fs.existsSync(deckAssets)) {
+      fs.cpSync(deckAssets, path.join(deckDir, 'public', 'assets'), { recursive: true });
     }
     console.log(`slides/${p.slug}/slides.md  (${count} slides de ${p.sections.length} seções)`);
   }
@@ -141,7 +150,7 @@ function generateSite(palestras) {
     }));
 
     for (const s of p.sections) {
-      let body = mermaidToDiv(stripSlideMarkers(s.body));
+      let body = mermaidToDiv(rewriteAssets(stripSlideMarkers(s.body), siteAssets(p.slug)));
       if (Array.isArray(s.data.fontes) && s.data.fontes.length) {
         body += ['', '', '## Fontes', '',
           ...s.data.fontes.map((f) =>
@@ -157,7 +166,7 @@ function generateSite(palestras) {
 
     const assets = path.join(p.dir, 'assets');
     if (fs.existsSync(assets)) {
-      fs.cpSync(assets, path.join(SITE_OUT, 'public', p.slug), { recursive: true });
+      fs.cpSync(assets, path.join(SITE_OUT, 'public', p.slug, 'assets'), { recursive: true });
     }
     console.log(`site/src/content/docs/${p.slug}/  (${p.sections.length} páginas)${i === palestras.length - 1 ? '' : ''}`);
   }

@@ -20,3 +20,9 @@ div.mermaid svg {
   max-width: 100%;
   height: auto;
 }
+
+/* Imagens do core (prints, GIFs, diagramas) — mesma moldura leve dos slides. */
+.sl-markdown-content img:not(.plain) {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 0.12);
+}

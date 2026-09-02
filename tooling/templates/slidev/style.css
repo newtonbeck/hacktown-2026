@@ -22,3 +22,20 @@
   display: flex;
   justify-content: center;
 }
+
+/* Prints, GIFs e diagramas cabem na altura útil do slide (552px de área). */
+.slidev-layout img {
+  max-height: 360px;
+  margin-inline: auto;
+  border-radius: 0.5rem;
+}
+
+/* Moldura leve separa print de tela do fundo do slide. */
+.slidev-layout img:not(.plain) {
+  box-shadow: 0 4px 20px rgb(0 0 0 / 0.18);
+}
+
+/* Escapes: <img class="full"> para imagem sem título, class="plain" sem moldura. */
+.slidev-layout img.full {
+  max-height: 450px;
+}
