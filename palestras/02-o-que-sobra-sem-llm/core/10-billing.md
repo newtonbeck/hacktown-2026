@@ -18,12 +18,17 @@ fontes:
   - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking-awsvpc.html
 ---
 
+<!-- slide:capitulo -->
+# Cobrança
+<!-- /slide -->
+
+<!-- slide:image image=assets/billing-usage.png backgroundSize=contain -->
+<!-- /slide -->
+
 <!-- slide -->
-## O agente roda e trabalha de verdade. Chegou a hora de cobrar.
+## Usamos mais um sidecar
 
-E adivinhem?
-
-# Mais um sidecar.
+<img src="assets/sidecar-3.png" alt="A mesma moto, agora com três cachorros de goggles em três sidecars em fila">
 <!-- /slide -->
 
 Com chat, deploy, skills, conexões e execução no lugar, o agente fazia trabalho real entre
@@ -73,6 +78,12 @@ Cada interação vira uma linha. O agente nem sabe.
 ***
 
 *Token não significa nada para quem compra. Dólar significa.*
+<!-- /slide -->
+
+<!-- slide:image image=assets/billing-manage.png backgroundSize=contain -->
+<!-- /slide -->
+
+<!-- slide:image image=assets/billing-stripe.png backgroundSize=contain -->
 <!-- /slide -->
 
 A conta é simples de propósito. Mantemos uma tabela com o preço por milhão de tokens de cada

@@ -32,6 +32,10 @@ proxy, banco de dados, webhook, tabela de preços e log. Nada disso sabe o que �
 - Hoje: engenharia na **Ground**, em Nova York
 <!-- /slide -->
 
+<!-- slide:capitulo -->
+# E vocês?
+<!-- /slide -->
+
 <!-- slide -->
 ## O que vamos ver
 

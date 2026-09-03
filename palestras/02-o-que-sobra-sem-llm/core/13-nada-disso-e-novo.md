@@ -38,7 +38,6 @@ Quem sabe desenhar um sistema que sobrevive a falha parcial, que isola tenants, 
 e que consegue explicar o próprio comportamento está muito mais perto de entregar um agente em
 produção do que quem sabe ajustar um prompt.
 
-<!-- slide -->
 ## O que é genuinamente novo cabe em três linhas
 
 1. O componente central é **não determinístico**
@@ -46,7 +45,6 @@ produção do que quem sabe ajustar um prompt.
 3. É **influenciável pelo texto que processa**
 
 *Três propriedades. Mudam as constantes dos problemas conhecidos. Não mudam a natureza deles.*
-<!-- /slide -->
 
 O que mudou de fato é pequeno e vale nomear. Um componente não determinístico torna o registro
 por execução obrigatório, não opcional. Um componente caro por chamada torna o metering um

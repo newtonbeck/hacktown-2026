@@ -9,6 +9,27 @@ notas: |
   num lugar, não baixa num laptop.
 ---
 
+<!-- slide:capitulo -->
+# Segurança
+<!-- /slide -->
+
+<!-- slide -->
+## O que entra e o que sai do agente
+
+```mermaid
+flowchart LR
+  X["Internet"] -. "nenhuma porta aberta" .-x H
+  Q[("Fila SQS<br/>da empresa")] --> SC
+  subgraph H["Task ECS · uma empresa"]
+    direction TB
+    SC["Sidecar<br/>channel"]
+    AG["Agente<br/>OpenClaw"]
+    SC <-- localhost --> AG
+  end
+  AG --> CX["Conexões<br/>tools · Pipedream · browser"]
+```
+<!-- /slide -->
+
 <!-- slide -->
 ## Fechado por padrão
 
