@@ -13,6 +13,10 @@ fontes:
   - https://www.anthropic.com/engineering/building-effective-agents
 ---
 
+<!-- slide:capitulo -->
+# A história
+<!-- /slide -->
+
 ## 8 de dezembro de 2025
 
 <!-- slide:center -->

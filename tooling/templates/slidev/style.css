@@ -45,3 +45,27 @@
 .slidev-layout img.full {
   max-height: 450px;
 }
+
+/*
+ * Layout "capitulo" (layouts/capitulo.vue): só o título, centralizado. Serve de
+ * respiro entre capítulos da palestra — nada de bullets, print ou diagrama aqui.
+ */
+.slidev-layout.capitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.slidev-layout.capitulo h1 {
+  font-size: 3rem;
+  line-height: 1.15;
+  color: var(--slidev-theme-primary);
+}
+
+.slidev-layout.capitulo h1 + p {
+  margin-top: 1rem;
+  opacity: 0.6;
+}

@@ -14,6 +14,10 @@ fontes:
   - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking-awsvpc.html
 ---
 
+<!-- slide:capitulo -->
+# Deploy
+<!-- /slide -->
+
 <!-- slide -->
 ## Um agente por empresa
 
@@ -42,6 +46,24 @@ empresa só**. A decisão foi de isolamento, não de escala: o estado do agente,
 credenciais das conexões e as skills são de uma empresa, e a forma mais barata de garantir que
 nunca vazem para outra é não compartilhar processo.
 
+## Estado em `.md` precisa de disco
+
+- O OpenClaw guarda memória, configuração e skills em **arquivos Markdown**
+- Container é efêmero. Redeploy = perde tudo.
+- Um **EFS** para a frota, com um **access point por empresa** montado no agente
+- Redeploy troca a imagem; o diretório da empresa continua lá
+
+Aqui está uma das exigências torcidas pelo componente central. Um serviço stateless comum não
+liga para redeploy. O OpenClaw, por desenho, é *stateful em arquivos*: memória de longo prazo,
+preferências, skills instaladas — tudo em `.md` no disco. Sem um volume persistente, cada deploy
+nosso apagaria a memória do agente do cliente.
+
+A solução é a mais antiga possível: um disco. É um único EFS para a frota inteira, mas cada
+empresa entra nele por um *access point* próprio, com raiz em `/{id-da-empresa}`, tráfego
+cifrado e autorização por IAM. O container monta isso em `/efs` e nunca enxerga o diretório de
+outra empresa; o deploy troca a imagem sem tocar no volume. O que é "do OpenClaw" vive no
+disco; o que é nosso vive no banco — e essa fronteira reaparece em cada peça seguinte.
+
 <!-- slide -->
 ## O deploy é uma task
 
@@ -68,25 +90,5 @@ pelo id da empresa, um log group, uma task definition com o agente e seus sideca
 serviço no ECS. Nada disso é sobre IA. É provisionamento de tenant, e já existia com esse nome
 muito antes de existir agente.
 
-<!-- slide -->
-## Estado em `.md` precisa de disco
-
-- O OpenClaw guarda memória, configuração e skills em **arquivos Markdown**
-- Container é efêmero. Redeploy = perde tudo.
-- Um **EFS** para a frota, com um **access point por empresa** montado no agente
-- Redeploy troca a imagem; o diretório da empresa continua lá
-<!-- /slide -->
-
-Aqui está uma das exigências torcidas pelo componente central. Um serviço stateless comum não
-liga para redeploy. O OpenClaw, por desenho, é *stateful em arquivos*: memória de longo prazo,
-preferências, skills instaladas — tudo em `.md` no disco. Sem um volume persistente, cada deploy
-nosso apagaria a memória do agente do cliente.
-
-A solução é a mais antiga possível: um disco. É um único EFS para a frota inteira, mas cada
-empresa entra nele por um *access point* próprio, com raiz em `/{id-da-empresa}`, tráfego
-cifrado e autorização por IAM. O container monta isso em `/efs` e nunca enxerga o diretório de
-outra empresa; o deploy troca a imagem sem tocar no volume. O que é "do OpenClaw" vive no
-disco; o que é nosso vive no banco — e essa fronteira é o assunto das próximas seções.
-
-A primeira delas responde à caixa que ficou sem explicação no diagrama: os **sidecars** ao lado
+A próxima seção responde à caixa que ficou sem explicação no diagrama: os **sidecars** ao lado
 do agente em cada serviço. Com a casa construída, falta mostrar como uma mensagem entra nela.

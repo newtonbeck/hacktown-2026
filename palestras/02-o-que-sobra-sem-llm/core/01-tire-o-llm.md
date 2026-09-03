@@ -26,6 +26,7 @@ proxy, banco de dados, webhook, tabela de preços e log. Nada disso sabe o que �
 **@newtonbeck** no Twitter, no GitHub e no LinkedIn
 
 - +15 anos construindo software
+- Bacharel em **Ciência & Tecnologia** pela **UFABC**
 - **Elo7** e **Nubank**, no Brasil
 - **Personio** e **Perspective**, na Alemanha
 - Hoje: engenharia na **Ground**, em Nova York

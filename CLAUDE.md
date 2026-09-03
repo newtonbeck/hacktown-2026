@@ -92,6 +92,10 @@ O desenvolvimento fica fora do bloco: contexto, números, argumento. Só o site 
 `<!-- slide:center -->` sobrescreve o layout da seção; `<!-- slide -->` usa o padrão. Uma seção
 pode ter zero blocos (só site) ou vários (vários slides).
 
+Além dos layouts do tema, o deck tem um layout próprio em
+`tooling/templates/slidev/layouts/capitulo.vue`: `<!-- slide:capitulo -->` com um `#` e nada mais
+no corpo. É o slide de respiro que abre um capítulo da palestra — sem bullets, print ou diagrama.
+
 ## Diagramas
 
 Mermaid é o padrão e vive dentro do core, em bloco ` ```mermaid `. O gerador trata cada destino
