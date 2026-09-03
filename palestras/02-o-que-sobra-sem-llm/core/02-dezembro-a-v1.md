@@ -13,23 +13,15 @@ fontes:
   - https://www.anthropic.com/engineering/building-effective-agents
 ---
 
-<!-- slide -->
 ## 8 de dezembro de 2025
 
+<!-- slide:center -->
 <img src="assets/slack-8-dez.png" class="full" alt="Mensagem no Slack da Ground: três demos de agente (OpenAI Agents SDK, CrewAI, LangChain) como ponto de partida para a discussão de arquitetura">
 <!-- /slide -->
 
 Foi assim que começou. Três frameworks, três demos de uma tela, uma reunião. A decisão daquela
 tarde foi a mais conservadora possível: usar o SDK de agentes da OpenAI, que tinha o menor número
 de abstrações entre nós e o modelo, e construir o resto.
-
-<!-- slide -->
-## A v1, na tela
-
-<img src="assets/v1-chat.png" class="full" alt="Chat da v1 do agente da Ground: pergunta sobre a receita gerada pelo GreetAI no mês anterior e resposta com valores atribuídos e comparação com fluxos padrão do Klaviyo">
-
-Um chat. Pergunta em linguagem natural, resposta com número da loja do cliente.
-<!-- /slide -->
 
 <!-- slide -->
 ## A v1, em código
@@ -48,6 +40,14 @@ while not done:
 - **Um loop**, nosso, de umas dezenas de linhas
 <!-- /slide -->
 
+<!-- slide -->
+## A v1, na tela
+
+<img src="assets/v1-chat.png" class="full" alt="Chat da v1 do agente da Ground: pergunta sobre a receita gerada pelo GreetAI no mês anterior e resposta com valores atribuídos e comparação com fluxos padrão do Klaviyo">
+
+Um chat. Pergunta em linguagem natural, resposta com número da loja do cliente.
+<!-- /slide -->
+
 A v1 era genuinamente isso. Um laço que chama o modelo, executa as ferramentas que ele pediu,
 devolve o resultado e repete. Um vector database para dar ao agente contexto sobre a empresa do
 cliente. E as ferramentas que a Ground já tinha construído para o nosso ICP — e-commerces que
@@ -57,7 +57,6 @@ Funcionou. Em janeiro estava na mão de uma parte dos clientes. E foi exatamente
 pergunta desta palestra apareceu pela primeira vez: o que faltava para isso virar produto não
 estava em nenhuma linha daquele laço.
 
-<!-- slide -->
 ## O que o loop não responde
 
 - Quem executa quando ninguém está olhando?
@@ -67,7 +66,6 @@ estava em nenhuma linha daquele laço.
 - Como isso roda para 50 empresas sem misturar nada?
 
 *Nenhuma dessas perguntas é sobre IA.*
-<!-- /slide -->
 
 Todo agente começa com esse laço, e não há nada de errado nisso — é a ideia central: um modelo
 que decide, uma ferramenta que executa, um contexto que acumula. O problema é que a distância

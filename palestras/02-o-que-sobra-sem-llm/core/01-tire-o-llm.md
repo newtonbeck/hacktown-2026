@@ -5,8 +5,8 @@ slide:
   layout: default
 notas: |
   Abrir pela agenda, sem slide de gancho: a pergunta do título já está na capa.
-  No slide da Ground, uma frase: o que o agente faz para o cliente. Não vender —
-  é contexto para o resto da palestra.
+  Nos slides da Ground, não vender: é contexto. O ponto a plantar é que os três
+  produtos são modelos pequenos, não LLM — o agente é o primeiro imprevisível.
 ---
 
 O que sobra ainda é um sistema? Quanto do seu código você teria que jogar fora?
@@ -18,7 +18,7 @@ proxy, banco de dados, webhook, tabela de preços e log. Nada disso sabe o que �
 <!-- slide -->
 ## O que vamos ver
 
-1. **A Ground** — quem somos e o que o nosso agente faz
+1. **A Ground** — quem somos e o que fazemos
 2. **A história** — de dezembro de 2025 até hoje: v1 própria, OpenClaw, OpenClaw as a service
 3. **O harness, peça por peça** — deploy, chat, conexões, playbooks/execução/auditoria, billing e segurança
 4. **A tese** — nada disso é novo; é engenharia de software dos últimos 20 anos com um componente não determinístico no meio
@@ -27,15 +27,25 @@ proxy, banco de dados, webhook, tabela de preços e log. Nada disso sabe o que �
 <!-- slide:image image=assets/ground-landing.png -->
 <!-- /slide -->
 
+<!-- slide -->
 ## A Ground
 
-**AI Revenue Agents for Commerce.** Um agente de IA que trabalha para times de e-commerce, dentro
-das ferramentas que o time já usa: Shopify, Klaviyo, Attentive, Postscript. Com clientes pagantes
-desde o primeiro dia — o que muda tudo no que vem a seguir.
+Empresa de IA em Nova York. Nossos clientes são lojas Shopify.
 
-A Ground existe para vender esse agente. Isso importa para a palestra porque cada decisão de
-arquitetura que vamos ver foi tomada com cliente esperando do outro lado: não dava para quebrar
-uma loja em produção para testar uma ideia de harness.
+- **Greet AI** — modelo leve que roda no browser e escolhe o melhor momento de mostrar o pop-up de oferta em troca do e-mail do visitante
+- **ReCartify** — identificação do visitante para disparar fluxos de abandono de busca, de carrinho e de compra
+- **ReBeat AI** — modelo de predição de compra: sugere o próximo produto para quem já comprou na loja
+<!-- /slide -->
+
+Repare que nenhum dos três é um LLM. São modelos pequenos, treinados para uma tarefa, medidos em
+receita atribuída. É o tipo de IA que a Ground já vendia antes de existir agente nenhum — e é bom
+ter isso em mente, porque a palestra inteira é sobre o que precisou ser construído quando o
+componente no meio deixou de ser previsível.
+
+O agente entra depois, como um quarto produto: em vez de rodar dentro da loja, ele trabalha ao
+lado do time que opera a loja. Isso importa para a palestra porque cada decisão de arquitetura que
+vamos ver foi tomada com cliente pagante esperando do outro lado: não dava para quebrar uma loja
+em produção para testar uma ideia de harness.
 
 O que esta palestra **não** é: um tutorial de prompt, uma comparação de modelos ou uma defesa de
 um framework. É o relato de um time pequeno que, ao construir um agente para clientes pagantes,

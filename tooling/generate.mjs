@@ -67,7 +67,8 @@ function generateSlides(palestras) {
     lines.push('---');
     lines.push('');
     lines.push(`# ${p.meta.titulo}`);
-    if (p.meta.resumo) lines.push('', p.meta.resumo);
+    // O `resumo` fica só no `info:` (painel do apresentador) e no site: um parágrafo
+    // inteiro na capa não se lê a cinco metros.
     const rodape = [p.meta.autor, p.meta.evento].filter(Boolean).join(' · ');
     if (rodape) lines.push('', `<div class="pt-8 opacity-60">${rodape}</div>`);
 
