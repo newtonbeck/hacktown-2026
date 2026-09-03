@@ -26,7 +26,6 @@ flowchart TD
   L((OpenClaw<br/>+ LLM))
   L --> B[Billing<br/>proxy · preços]
   L --> G[Segurança<br/>fechado por padrão]
-  L --> O[Observabilidade<br/>runs · logs]
   style L fill:#2f6f4f,color:#fff
 ```
 <!-- /slide -->

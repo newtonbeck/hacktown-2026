@@ -9,6 +9,10 @@ notas: |
   três origens. Isso simplificou muito o debug.
 ---
 
+<!-- slide:capitulo -->
+# Execução, agendamento e logs
+<!-- /slide -->
+
 <!-- slide -->
 ## Três gatilhos, um mecanismo
 
