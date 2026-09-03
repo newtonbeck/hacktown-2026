@@ -16,8 +16,8 @@ notas: |
 flowchart LR
   subgraph H[" "]
     direction LR
+    D[Deploy<br/>ECS · ECR · EFS]
     C[Chat<br/>SNS · SQS · sidecar]
-    D[Deploy<br/>ECS · ECR · EBS]
     S[Skills<br/>materialização]
     I[Conexões<br/>Pipedream · internas]
     E[Execução<br/>run · schedule · webhook]

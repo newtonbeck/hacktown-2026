@@ -20,7 +20,7 @@ fontes:
 | Channel fechado, fila por empresa | Pub/sub, fan-out, filtro de assinatura |
 | Sidecar de mensagens, de materialização, de billing | Sidecar pattern |
 | Uma imagem, config por empresa, task de deploy | 12-factor, imutabilidade de artefato |
-| Estado em `.md` + EBS | Volume persistente |
+| Estado em `.md` + EFS | Volume persistente |
 | Playbooks no DB, materializados no agente | Source of truth + cache derivado |
 | Run, Schedule, webhook → system message | Event-driven, fila como interface |
 | Proxy localhost que mede tokens | Reverse proxy, metering |

@@ -64,7 +64,7 @@ sequenceDiagram
   participant BE as Backend / DB
   participant EV as Evento
   participant SC as Sidecar de<br/>materialização
-  participant FS as Disco do agente<br/>(EBS)
+  participant FS as Disco do agente<br/>(EFS)
   U->>BE: edita playbook / schedule
   BE->>EV: playbooks_update · schedule_update
   EV->>SC: consome
