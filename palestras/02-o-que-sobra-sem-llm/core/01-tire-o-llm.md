@@ -9,6 +9,8 @@ notas: |
   de onde vem o que vai ser contado. Depois, a agenda.
   Nos slides da Ground, não vender: é contexto. O ponto a plantar é que os três
   produtos são modelos pequenos, não LLM — o agente é o primeiro imprevisível.
+  Nos números dos clientes, não ler a lista: eles servem só para a plateia
+  calibrar o tamanho da loja de que estamos falando.
 ---
 
 O que sobra ainda é um sistema? Quanto do seu código você teria que jogar fora?
@@ -66,6 +68,20 @@ Repare que nenhum dos três é um LLM. São modelos pequenos, treinados para uma
 receita atribuída. É o tipo de IA que a Ground já vendia antes de existir agente nenhum — e é bom
 ter isso em mente, porque a palestra inteira é sobre o que precisou ser construído quando o
 componente no meio deixou de ser previsível.
+
+<!-- slide -->
+## Os clientes da Ground
+
+E-commerces em **Shopify**, grandes o suficiente para ter um time de marketing:
+
+- Mais de **US$ 3 milhões** de faturamento por ano
+- Mais de **20 mil visitantes** por mês
+- Marketing em **Klaviyo**, **Attentive** ou **Postscript**
+<!-- /slide -->
+
+O recorte é estreito de propósito, e vale guardar: é ele que decide quais integrações valem ser
+escritas à mão. As quatro dessa lista — Shopify, Klaviyo, Attentive e Postscript — voltam na seção
+de conexões como as únicas que mantemos por conta própria.
 
 O agente entra depois, como um quarto produto: em vez de rodar dentro da loja, ele trabalha ao
 lado do time que opera a loja. Isso importa para a palestra porque cada decisão de arquitetura que

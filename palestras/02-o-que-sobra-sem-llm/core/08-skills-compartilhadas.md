@@ -17,7 +17,7 @@ fontes:
 ---
 
 <!-- slide:capitulo -->
-# Playbooks e materialização
+# Playbooks
 <!-- /slide -->
 
 <!-- slide:image image=assets/playbooks-list.png backgroundSize=contain -->

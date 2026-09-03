@@ -1,12 +1,29 @@
 ---
 titulo: Encerramento
-resumo: Quatro recomendações para quem está no meio disso, e a frase final.
+resumo: Onde o produto está hoje, quatro recomendações para quem está no meio disso, e a frase final.
 slide:
   layout: default
 notas: |
+  Os números de hoje são status, não pitch: dizer e seguir.
   Terminar na frase do slide de fechamento. Não adicionar nada depois. Abrir
   para perguntas — 15 minutos.
 ---
+
+<!-- slide:capitulo -->
+# Como estamos atualmente
+<!-- /slide -->
+
+<!-- slide -->
+## Como estamos atualmente
+
+- **30 clientes ativos**
+- Trabalhando para manter os **custos sob controle**
+- Fazendo **testes de SEO** para encontrar product-market fit
+<!-- /slide -->
+
+As três linhas dizem em que estágio o produto está: já tem cliente pagante, o custo por execução
+ainda é assunto aberto — a seção de billing explica por quê — e a distribuição ainda está sendo
+descoberta. É de dentro desse estágio que vêm as recomendações a seguir.
 
 ## Se eu fosse começar hoje
 
