@@ -38,9 +38,14 @@ const escapeHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace
  * Expressive Code (Starlight) engoliria o bloco ```mermaid como código.
  * Convertemos para <div class="mermaid">, que o Head.astro renderiza no cliente.
  * No Slidev o bloco fica intacto — lá o mermaid é nativo.
+ *
+ * O bloco pode trazer opções do Slidev na linha da cerca (```mermaid {scale: 0.6}),
+ * que só fazem sentido no deck: o SVG do mermaid nasce dentro de um shadow root e
+ * o CSS de fora não o alcança, então `scale` é o único jeito de caber na altura do
+ * slide. Aqui elas são descartadas.
  */
 const mermaidToDiv = (body) =>
-  body.replace(/^```mermaid[ \t]*\r?\n([\s\S]*?)^```[ \t]*$/gm,
+  body.replace(/^```mermaid[^\n]*\r?\n([\s\S]*?)^```[ \t]*$/gm,
     (_, code) => `<div class="mermaid">\n${escapeHtml(code.trimEnd())}\n</div>`);
 
 // ---------------------------------------------------------------- slides

@@ -13,29 +13,30 @@ notas: |
 ## O que de fato foi construído
 
 ```mermaid
-flowchart LR
-  subgraph H[" "]
-    direction LR
-    D[Deploy<br/>ECS · ECR · EFS]
-    C[Chat<br/>SNS · SQS · sidecar]
-    S[Skills<br/>materialização]
-    I[Conexões<br/>Pipedream · internas]
-    E[Execução<br/>run · schedule · webhook]
-    B[Billing<br/>proxy · tabela de preços]
-    G[Segurança<br/>fechado por padrão]
-    O[Observabilidade<br/>runs · logs]
-  end
+flowchart TD
+  D[Deploy<br/>ECS · ECR · EFS] --> L
+  C[Chat<br/>SNS · SQS · sidecar] --> L
+  S[Skills<br/>materialização] --> L
+  I[Conexões<br/>Pipedream] --> L
+  E[Execução<br/>run · schedule] --> L
   L((OpenClaw<br/>+ LLM))
-  C --> L
-  S --> L
-  I --> L
-  E --> L
-  L --> B
-  L --> O
-  D -.-> L
-  G -.-> L
+  L --> B[Billing<br/>proxy · preços]
+  L --> G[Segurança<br/>fechado por padrão]
+  L --> O[Observabilidade<br/>runs · logs]
   style L fill:#2f6f4f,color:#fff
 ```
+<!-- /slide -->
+
+<!-- slide -->
+## O que usamos para construir
+
+- **ECR** — uma imagem do agente para toda a frota
+- **ECS** — *tasks* para o deploy, *serviços* para os agentes que ficam de pé
+- **SNS + SQS** — o caminho por onde toda mensagem entra
+
+***
+
+*Serviço gerenciado, nada exótico. A dificuldade nunca esteve aqui.*
 <!-- /slide -->
 
 Esse desenho é a palestra inteira em uma imagem. O círculo é o agente propriamente dito — o

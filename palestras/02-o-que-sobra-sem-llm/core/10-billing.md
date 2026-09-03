@@ -38,7 +38,7 @@ vezes: colocamos um processo ao lado.
 <!-- slide -->
 ## O agente não sabe que está sendo medido
 
-```mermaid
+```mermaid {scale: 0.78}
 sequenceDiagram
   participant AG as Agente (OpenClaw)
   participant PX as Sidecar proxy<br/>localhost

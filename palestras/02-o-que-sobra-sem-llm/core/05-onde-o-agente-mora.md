@@ -15,32 +15,30 @@ fontes:
 ---
 
 <!-- slide -->
-## Um serviço por empresa
+## Um agente por empresa
 
-```mermaid
-flowchart LR
-  ECR[(ECR<br/>imagem do agente)]
-  DT[Task de deploy]
-  DB[(Backend / DB)]
-  subgraph CL[Cluster ECS]
-    subgraph S1[Serviço · empresa A]
-      A1[Agente] --- SC1[Sidecars]
-      V1[(EFS<br/>/empresa-A)]
-    end
-    subgraph S2[Serviço · empresa B]
-      A2[Agente] --- SC2[Sidecars]
-      V2[(EFS<br/>/empresa-B)]
-    end
-  end
-  ECR --> DT
-  DB -- env vars --> DT
+```mermaid {scale: 0.72}
+flowchart TD
+  ECR[(ECR · imagem do agente)] --> DT[Task de deploy]
+  DB[(Backend / DB)] -- env vars --> DT
   DT --> S1
   DT --> S2
+  subgraph CL[Cluster ECS]
+    direction LR
+    subgraph S1[Empresa A]
+      A1[Agente + sidecars]
+      V1[(EFS /empresa-A)]
+    end
+    subgraph S2[Empresa B]
+      A2[Agente + sidecars]
+      V2[(EFS /empresa-B)]
+    end
+  end
 ```
 <!-- /slide -->
 
-Todos os agentes rodam no mesmo cluster ECS, mas **cada instância do serviço roda para uma
-empresa diferente**. A decisão foi de isolamento, não de escala: o estado do agente, as
+Todos os agentes rodam no mesmo cluster ECS, mas **cada serviço roda o agente de uma
+empresa só**. A decisão foi de isolamento, não de escala: o estado do agente, as
 credenciais das conexões e as skills são de uma empresa, e a forma mais barata de garantir que
 nunca vazem para outra é não compartilhar processo.
 
@@ -48,14 +46,13 @@ nunca vazem para outra é não compartilhar processo.
 ## O deploy é uma task
 
 ```mermaid
-flowchart TD
-  T[Task de deploy<br/>ORGANIZATION_ID] --> Q{Já existe serviço?}
-  Q -- ativo --> N[não faz nada]
-  Q -- parado --> U[liga de novo]
-  Q -- não --> S[Segredo da empresa<br/>shared + chaves das conexões]
-  S --> R[Recursos<br/>EFS · fila SQS ← SNS · logs]
+flowchart LR
+  T[Task de deploy] --> Q{Já existe?}
+  Q -- sim --> N[liga de novo<br/>ou não faz nada]
+  Q -- não --> S[Segredo<br/>da empresa]
+  S --> R[EFS · fila SQS<br/>logs]
   R --> D[Task definition<br/>agente + sidecars]
-  D --> E[Serviço ECS<br/>openclaw-empresa]
+  D --> E[Serviço ECS]
 ```
 <!-- /slide -->
 

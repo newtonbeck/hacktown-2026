@@ -33,5 +33,9 @@ run('node', [path.join(ROOT, 'tooling', 'generate.mjs')]);
 
 const entry = path.join('slides', matches[0], 'slides.md');
 const args = command === 'dev' ? [entry] : [command, entry];
-if (command === 'export') args.push('--output', path.join('slides', matches[0], `${matches[0]}.pdf`));
+// `--per-slide` renderiza uma página por vez. Sem isso o mermaid, que desenha de
+// forma assíncrona, não termina a tempo e o slide sai em branco no PDF.
+if (command === 'export') {
+  args.push('--per-slide', '--output', path.join('slides', matches[0], `${matches[0]}.pdf`));
+}
 run('slidev', [...args, ...rest]);

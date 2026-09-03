@@ -23,6 +23,12 @@
   justify-content: center;
 }
 
+/*
+ * Não adianta tentar dimensionar o SVG daqui: o Slidev renderiza o mermaid dentro
+ * de um shadow root, onde este CSS não entra. Para caber na altura do slide, use
+ * a opção do próprio Slidev na cerca do bloco: ```mermaid {scale: 0.6}
+ */
+
 /* Prints, GIFs e diagramas cabem na altura útil do slide (552px de área). */
 .slidev-layout img {
   max-height: 360px;
