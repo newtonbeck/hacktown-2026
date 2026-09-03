@@ -32,6 +32,12 @@ o agente literalmente não tem como receber uma mensagem que não veio do nosso 
 <!-- /slide -->
 
 <!-- slide -->
+## Conheçam o sidecar
+
+<img src="assets/sidecar.png" alt="Moto com sidecar: o motociclista dirige e o cachorro de goggles vai no sidecar ao lado">
+<!-- /slide -->
+
+<!-- slide -->
 ## Dois containers, um host
 
 ```mermaid
@@ -47,11 +53,6 @@ flowchart LR
 ```
 <!-- /slide -->
 
-<!-- slide -->
-## Conheçam o sidecar
-
-<img src="assets/sidecar.png" alt="Moto com sidecar: o motociclista dirige e o cachorro de goggles vai no sidecar ao lado">
-<!-- /slide -->
 
 <!-- slide -->
 ## Dois containers, um host
@@ -109,3 +110,12 @@ Do lado do agente, no mesmo serviço ECS, um processo separado fica consumindo a
 cada mensagem ao channel do OpenClaw. Quando o agente termina a tarefa, ele (e os callbacks
 intermediários) chama um endpoint no backend para atualizar o chat. O chat vive no banco de
 dados, não no agente.
+
+<!-- slide -->
+## Chat, em resumo
+
+- **Assíncrono** de ponta a ponta, com **SNS + SQS**
+- O **sidecar** consome a mensagem da fila
+- Passa para o agente por um **channel** nosso
+- O agente responde ao backend pelo mesmo channel
+<!-- /slide -->

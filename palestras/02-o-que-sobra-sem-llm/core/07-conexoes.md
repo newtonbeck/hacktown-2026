@@ -14,6 +14,10 @@ fontes:
   - https://playwright.dev/
 ---
 
+<!-- slide:capitulo -->
+# Conexões
+<!-- /slide -->
+
 <!-- slide -->
 ## Um agente vale pelas ferramentas que alcança
 
