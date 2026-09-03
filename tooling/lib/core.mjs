@@ -54,6 +54,28 @@ export const assetPath = (value, prefix) =>
     ? prefix + value.slice('assets/'.length)
     : value;
 
+/**
+ * Toda referência `assets/…` do core tem que existir em `palestras/<slug>/assets/`.
+ * Sem isso o Slidev quebra tarde, no import do Vite, e o `export` ainda sai com
+ * código 0 — o PDF só vem com a página em branco. Falhar aqui é mais barato.
+ */
+const ASSET_FILE = /(?:\]\(|\bsrc=["']|\bposter=["']|\b\w+=)assets\/([^"')\s>]+)/g;
+
+function assertAssets(slug, dir, files) {
+  const assetsDir = path.join(dir, 'assets');
+  const missing = [];
+  for (const [file, text] of files) {
+    for (const [, ref] of text.matchAll(ASSET_FILE)) {
+      if (!fs.existsSync(path.join(assetsDir, ref))) missing.push(`${slug}/core/${file}: assets/${ref}`);
+    }
+  }
+  if (missing.length) {
+    throw new Error(
+      `Imagem referenciada no core que não existe em palestras/${slug}/assets/:\n  ${missing.join('\n  ')}`,
+    );
+  }
+}
+
 export function readPalestras() {
   if (!fs.existsSync(PALESTRAS_DIR)) return [];
   return fs
@@ -68,12 +90,15 @@ export function readPalestras() {
       const meta = parseYaml(fs.readFileSync(metaPath, 'utf8'));
 
       const coreDir = path.join(dir, 'core');
+      const raw = new Map();
       const sections = fs
         .readdirSync(coreDir)
         .filter((f) => f.endsWith('.md'))
         .sort()
         .map((file, index) => {
-          const { data, body } = parseFrontmatter(fs.readFileSync(path.join(coreDir, file), 'utf8'));
+          const text = fs.readFileSync(path.join(coreDir, file), 'utf8');
+          raw.set(file, text);
+          const { data, body } = parseFrontmatter(text);
           if (!data.titulo) throw new Error(`${slug}/core/${file}: frontmatter sem \`titulo\``);
           return {
             id: file.replace(/\.md$/, ''),
@@ -84,6 +109,7 @@ export function readPalestras() {
           };
         });
 
+      assertAssets(slug, dir, raw);
       return { slug, dir, meta, sections };
     });
 }

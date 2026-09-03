@@ -178,7 +178,13 @@ function generateSite(palestras) {
 
 // ------------------------------------------------------------------ main
 
-const palestras = readPalestras();
+let palestras;
+try {
+  palestras = readPalestras();
+} catch (err) {
+  console.error(`\nerro: ${err.message}\n`);
+  process.exit(1);
+}
 if (!palestras.length) {
   console.error('Nenhuma palestra em palestras/. Nada a gerar.');
   process.exit(1);

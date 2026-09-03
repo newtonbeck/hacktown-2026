@@ -16,9 +16,7 @@ fontes:
 <!-- slide -->
 ## 8 de dezembro de 2025
 
-> "Preparei três demos simples de agente com três ferramentas diferentes: OpenAI Agents SDK, CrewAI e LangChain. A ideia é usar as demos como ponto de partida para a discussão de arquitetura hoje à tarde."
-
-*— mensagem no Slack da Ground, manhã de uma segunda-feira*
+<img src="assets/slack-8-dez.png" class="full" alt="Mensagem no Slack da Ground: três demos de agente (OpenAI Agents SDK, CrewAI, LangChain) como ponto de partida para a discussão de arquitetura">
 <!-- /slide -->
 
 Foi assim que começou. Três frameworks, três demos de uma tela, uma reunião. A decisão daquela
@@ -26,7 +24,15 @@ tarde foi a mais conservadora possível: usar o SDK de agentes da OpenAI, que ti
 de abstrações entre nós e o modelo, e construir o resto.
 
 <!-- slide -->
-## A v1, em uma tela
+## A v1, na tela
+
+<img src="assets/v1-chat.png" class="full" alt="Chat da v1 do agente da Ground: pergunta sobre a receita gerada pelo GreetAI no mês anterior e resposta com valores atribuídos e comparação com fluxos padrão do Klaviyo">
+
+Um chat. Pergunta em linguagem natural, resposta com número da loja do cliente.
+<!-- /slide -->
+
+<!-- slide -->
+## A v1, em código
 
 ```python
 while not done:
@@ -36,6 +42,7 @@ while not done:
     done = response.finished
 ```
 
+- **OpenAI Agents SDK** — o menor número de abstrações entre nós e o modelo
 - **Tools**: Shopify, Klaviyo, Attentive, Postscript — as que já tínhamos
 - **Vector database** para o contexto da empresa
 - **Um loop**, nosso, de umas dezenas de linhas
