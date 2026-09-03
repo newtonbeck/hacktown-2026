@@ -21,6 +21,11 @@ fontes:
 <!-- slide:image image=assets/conexoes-ui.png backgroundSize=contain -->
 <!-- /slide -->
 
+A tela de conectores é o que essa decisão virou para o cliente: as plataformas já ligadas de um
+lado — vinte e oito, na conta da organização do print — e, do outro, um painel de busca em mais
+de três mil conectores, cada um com um botão de conectar. Quem conecta é a pessoa da empresa, com
+a própria conta; nós não guardamos senha de ninguém.
+
 <!-- slide -->
 ## Um agente vale pelas ferramentas que alcança
 
@@ -54,6 +59,11 @@ de dezembro — e para elas mantemos as nossas: controle de escopo, de rate limi
 porque é aí que o agente gasta a maior parte do tempo.
 
 A regra prática: compre a cauda longa, construa só a cabeça, e deixe o browser para o resto.
+
+A cauda longa também virou porta de entrada: cada integração ganha uma página própria — *"a
+maneira mais rápida de construir um agente de Google Sheets"* — em vez de uma lista genérica de
+conectores. É o mesmo catálogo que o agente alcança, escrito para quem procura pela ferramenta
+que já usa.
 
 <!-- slide:image image=assets/connection-seo.png backgroundSize=contain -->
 <!-- /slide -->

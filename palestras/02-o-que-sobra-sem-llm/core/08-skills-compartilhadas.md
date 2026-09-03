@@ -1,5 +1,5 @@
 ---
-titulo: Skills compartilhadas e materialização
+titulo: Playbooks e materialização
 resumo: Playbooks são da empresa, não do usuário — a lição do River da Shopify — e como o backend continua sendo a fonte da verdade quando o agente guarda tudo em arquivo.
 slide:
   layout: default
@@ -23,8 +23,17 @@ fontes:
 <!-- slide:image image=assets/playbooks-list.png backgroundSize=contain -->
 <!-- /slide -->
 
+Um playbook, na interface, é um processo com nome, descrição, status e histórico de execução — a
+biblioteca da organização, não a de uma pessoa. A lista do print tem trinta e nove deles, uns
+prontos, uns em rascunho, uns desligados.
+
 <!-- slide:image image=assets/playbook-details.png backgroundSize=contain -->
 <!-- /slide -->
+
+Aberto, ele mostra os passos numerados, o que cada passo lê ou escreve, em qual conexão, e os
+parâmetros que precisa receber na hora de rodar. É esse objeto que o agente materializa no disco
+como skill — e é por isso que a próxima parte da seção é sobre quem manda quando o mesmo playbook
+existe em dois lugares.
 
 <!-- slide -->
 ## Skill é da empresa, não do usuário

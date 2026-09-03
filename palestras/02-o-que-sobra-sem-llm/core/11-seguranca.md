@@ -30,6 +30,12 @@ flowchart LR
 ```
 <!-- /slide -->
 
+Vale olhar o desenho pelas setas que **não** existem. Não há seta da internet para dentro da
+task: o agente não escuta em porta nenhuma, e a única entrada é a fila da própria empresa, lida
+pelo sidecar e entregue por `localhost`. Do outro lado ficam as conexões — as tools internas, o
+Pipedream e o browser —, que são também a superfície por onde texto de fora entra. Duas vias, as
+duas nossas, e é sobre elas que o resto da seção fala.
+
 <!-- slide -->
 ## Fechado por padrão
 

@@ -17,6 +17,9 @@ fontes:
 # A história
 <!-- /slide -->
 
+A história vai de dezembro de 2025 até hoje, em três atos: uma v1 feita à mão, a chegada do
+OpenClaw e a decisão de oferecê-lo como serviço.
+
 ## 8 de dezembro de 2025
 
 <!-- slide:center -->

@@ -1,6 +1,6 @@
 ---
 titulo: Encerramento
-resumo: Duas recomendações para quem está no meio disso, e a frase final.
+resumo: Quatro recomendações para quem está no meio disso, e a frase final.
 slide:
   layout: default
 notas: |
@@ -28,6 +28,10 @@ o problema se resolveu com um "delete e baixe de novo".
 O produto é o harness.
 
 E o harness você já sabe construir.
+
+Se sobrar uma frase desta palestra, que seja essa. O modelo é o componente que muda de nome a
+cada seis meses; o que segura o produto de pé é a mesma engenharia de sempre, e ela não vai
+envelhecer no próximo release.
 
 <!-- slide:capitulo -->
 # Perguntas?

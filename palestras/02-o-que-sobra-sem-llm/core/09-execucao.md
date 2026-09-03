@@ -1,6 +1,6 @@
 ---
-titulo: Execução
-resumo: Três gatilhos — Run, Schedule e webhook — e um único mecanismo: uma system message entregue ao agente.
+titulo: Execução, agendamento e logs
+resumo: Três gatilhos — Run, Schedule e webhook — e um único mecanismo: uma system message entregue ao agente. E o registro por execução que responde "o que ele fez às 3h da manhã".
 slide:
   layout: default
 notas: |
@@ -21,6 +21,16 @@ notas: |
 
 <!-- slide:image image=assets/run-chat.png backgroundSize=contain -->
 <!-- /slide -->
+
+Antes de qualquer arquitetura, é isso que o cliente vê. Uma lista de **runs** com status e quando
+começaram — *running*, *completed*, e a etiqueta do gatilho que a disparou. Uma run aberta mostra
+o desfecho, a duração, os passos executados um a um com o tempo de cada um, e o playbook de onde
+ela veio. E, no chat, a mesma execução aparece como uma linha discreta — *"Running playbook Daily
+Inbox Briefing"* — em vez do XML que a disparou.
+
+Registro por execução não é enfeite de observabilidade: é a única resposta possível para "o que
+o agente fez às 3h da manhã, e por quê". Log de container não responde, porque a pergunta não é
+onde quebrou — é o que ele estava tentando fazer.
 
 <!-- slide -->
 ## Três gatilhos, um mecanismo
@@ -123,14 +133,22 @@ materialização de playbooks: um dono por arquivo.
 <!-- slide:image image=assets/run-webhook-details.png backgroundSize=contain -->
 <!-- /slide -->
 
-Tirar o relógio de dentro do agente foi uma decisão deliberada. Se o cron vivesse no container,
-um redeploy no meio da noite pularia uma execução e ninguém saberia. Com o agendador no backend,
-o disparo é um registro no banco, tem retry e tem log — e se o agente estiver fora, a mensagem
-espera na fila.
+Onde vive o relógio é a decisão fina desta seção. O **schedule** é um registro no banco, criado
+pela interface ou pelo próprio agente — nome, frequência, hora, timezone, data de início e
+condição de parada, tudo com histórico e permissão. O que **dispara** na hora marcada é o cron do
+próprio agente, e ele é derivado desse registro: no boot do container e a cada mudança publicada
+pelo backend, a materialização apaga os jobs `playbook-schedule:*` e recria um por schedule ativo.
 
-Webhooks seguem o mesmo caminho: o evento externo bate no backend, o backend identifica o
-playbook inscrito naquele evento e publica a system message com o payload. O agente recebe
-"chegou um pedido novo, aqui está o JSON, execute o playbook X".
+O preço dessa divisão é conhecido e vale dizer em voz alta: container fora do ar na hora marcada
+não tem catch-up — a próxima reconciliação repõe os jobs, não as execuções perdidas. Em troca,
+quem edita um horário na interface não depende de deploy nenhum: o evento chega, o sidecar
+reconcilia, e o próximo disparo já é o novo.
+
+Webhooks são o terceiro gatilho, e o mais interessante da lista, porque um evento pode acionar
+**vários** playbooks. Cada webhook tem uma URL própria e uma lista de playbooks conectados; o
+backend recebe a requisição, resolve essa lista e emite uma system message para cada um, com o
+payload do evento no corpo. O agente recebe "chegou um pedido novo, aqui está o JSON, execute o
+playbook X" — uma vez por inscrição.
 
 <!-- slide -->
 ## Um webhook, um playbook por inscrição
@@ -144,3 +162,6 @@ flowchart LR
   Q --> AG["Agente"]
 ```
 <!-- /slide -->
+
+Somando os três gatilhos: uma fila, um sidecar, um channel e um envelope de mensagem. Nenhum
+executor de playbook, nenhum worker dedicado, nenhum segundo caminho para manter em pé.

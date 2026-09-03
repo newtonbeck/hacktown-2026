@@ -13,6 +13,10 @@ notas: |
 # A tese
 <!-- /slide -->
 
+Daqui até o fim, a palestra deixa de descrever peças e passa a defender uma ideia. O primeiro
+passo do argumento é o mais desconfortável, porque é a pergunta que o cliente faz quando algo
+sai errado — e a resposta a ela não vem do modelo, vem do registro que o harness mantém.
+
 ## A pergunta que quebra tudo
 
 > "Por que o agente fez isso?"

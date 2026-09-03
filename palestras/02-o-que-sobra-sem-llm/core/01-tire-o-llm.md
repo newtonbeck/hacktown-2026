@@ -36,6 +36,10 @@ proxy, banco de dados, webhook, tabela de preços e log. Nada disso sabe o que �
 # E vocês?
 <!-- /slide -->
 
+Aqui a pergunta vira para a plateia: quem está construindo agente, quem está começando e quem já
+levou um para produção. O que vem depois é o relato de um time que fez isso com cliente pagante
+do outro lado — e saber quem está na sala muda onde vale gastar tempo.
+
 <!-- slide -->
 ## O que vamos ver
 

@@ -25,11 +25,18 @@ fontes:
 <!-- slide:image image=assets/billing-usage.png backgroundSize=contain -->
 <!-- /slide -->
 
+O destino de toda essa medição é uma tela como essa: gasto do mês em dólares, quanto do limite
+já foi usado, custo por dia e o detalhamento diário. Nada de token na interface do cliente — a
+conversão acontece antes.
+
 <!-- slide -->
 ## Usamos mais um sidecar
 
 <img src="assets/sidecar-3.png" alt="A mesma moto, agora com três cachorros de goggles em três sidecars em fila">
 <!-- /slide -->
+
+E é o terceiro sidecar da palestra: um para as mensagens, um para a materialização, um para
+medir. A mesma moto, três assentos ao lado — nenhum deles dentro do agente.
 
 Com chat, deploy, skills, conexões e execução no lugar, o agente fazia trabalho real entre
 ferramentas diferentes. Faltava o que separa projeto de produto: saber quanto cada empresa gastou
@@ -85,6 +92,10 @@ Cada interação vira uma linha. O agente nem sabe.
 
 <!-- slide:image image=assets/billing-stripe.png backgroundSize=contain -->
 <!-- /slide -->
+
+A cobrança em si é a parte que ninguém precisa reinventar: cartão, assinatura, fatura e recibo
+saem do portal da Stripe, e a única coisa que fizemos foi levar o cliente até lá. O que é nosso
+é o que a Stripe não sabe — quantos tokens aquela run consumiu e em qual playbook.
 
 A conta é simples de propósito. Mantemos uma tabela com o preço por milhão de tokens de cada
 modelo que usamos, atualizada uma vez por semana a partir da página de preços do provedor.

@@ -38,10 +38,12 @@ Vale insistir em uma distinção: o harness não é infraestrutura genérica que
 um PaaS. Cada caixa tem uma exigência específica que vem do fato de o componente central ser
 **não determinístico**, **caro por chamada** e **influenciável pelo texto que lê**.
 
-Observabilidade normal registra o que aconteceu; aqui é preciso registrar o que o agente estava
-tentando fazer em cada passo de uma run. Billing normal conta requisições; aqui a unidade de
-custo varia por execução em uma ordem de grandeza. Segurança normal protege o perímetro; aqui o
-próprio agente é um usuário com credenciais e precisa ser tratado como tal.
+Auditoria normal registra o que aconteceu; aqui é preciso registrar o que o agente estava
+tentando fazer em cada passo de uma run — e é por isso que o log não tem caixa própria no
+desenho: ele nasce dentro da execução, escrito pelo próprio playbook. Billing normal conta
+requisições; aqui a unidade de custo varia por execução em uma ordem de grandeza. Segurança
+normal protege o perímetro; aqui o próprio agente é um usuário com credenciais e precisa ser
+tratado como tal.
 
 <!-- slide:capitulo -->
 # O que usamos para construir

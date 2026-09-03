@@ -31,11 +31,19 @@ o agente literalmente não tem como receber uma mensagem que não veio do nosso 
 <!-- slide:image image=assets/chat-ui.png backgroundSize=contain -->
 <!-- /slide -->
 
+Do lado do usuário, tudo isso parece simplesmente um chat: uma caixa de texto, o histórico da
+conversa e o agente respondendo. Nada na tela sugere fila, tópico ou container — e é esse o
+ponto. O que vem a seguir é o que existe atrás dessa caixa de texto.
+
 <!-- slide -->
 ## Conheçam o sidecar
 
 <img src="assets/sidecar.png" alt="Moto com sidecar: o motociclista dirige e o cachorro de goggles vai no sidecar ao lado">
 <!-- /slide -->
+
+A imagem é a definição. A moto é o agente e continua sendo uma moto; o sidecar vai ao lado, no
+mesmo chassi, e leva o que o motociclista não pode levar no colo. Nenhum dos dois vira outra
+coisa por causa do outro.
 
 <!-- slide -->
 ## Dois containers, um host
@@ -53,6 +61,8 @@ flowchart LR
 ```
 <!-- /slide -->
 
+Traduzido para container, o desenho é esse — e a lista a seguir diz a mesma coisa em palavras,
+porque é essa divisão de tarefas que se repete em todas as seções seguintes.
 
 <!-- slide -->
 ## Dois containers, um host
@@ -119,3 +129,7 @@ dados, não no agente.
 - Passa para o agente por um **channel** nosso
 - O agente responde ao backend pelo mesmo channel
 <!-- /slide -->
+
+Nenhuma dessas quatro linhas é sobre IA. É pub/sub com filtro de assinatura, um consumidor por
+tenant e um adaptador de protocolo — e é a fundação que as próximas peças reaproveitam sem
+escrever fila nova.
