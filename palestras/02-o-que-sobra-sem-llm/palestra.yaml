@@ -1,7 +1,8 @@
 titulo: O que sobra quando você tira o LLM do seu agente?
 titulo_curto: O harness dos agentes
-autor: Newton
+autor: Newton Angelini
 evento: Hacktown 2026
+data: "03.09"
 duracao: 45min + 15min de perguntas
 resumo: >
   Durante meses acreditamos que estávamos construindo agentes de IA. Com o tempo percebemos que
@@ -10,3 +11,9 @@ resumo: >
   da Ground — e por que o verdadeiro desafio não é o LLM, mas o harness que o transforma em software
   de produção, reaproveitando praticamente todos os fundamentos da engenharia de software dos
   últimos 20 anos.
+# Capa do deck em três linhas (a do meio é o destaque) e o sinal gigante ao fundo.
+capa:
+  antes: O que sobra quando você
+  destaque: tira o LLM
+  depois: do seu agente
+  pontuacao: "?"

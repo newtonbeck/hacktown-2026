@@ -69,3 +69,13 @@
   margin-top: 1rem;
   opacity: 0.6;
 }
+
+/* Assinatura da capa (autor · data evento), gerada a partir do palestra.yaml. */
+.slidev-layout.cover .capa-assinatura {
+  padding-top: 2rem;
+  opacity: 0.6;
+}
+
+.slidev-layout.cover .capa-assinatura span + span::before {
+  content: ' · ';
+}

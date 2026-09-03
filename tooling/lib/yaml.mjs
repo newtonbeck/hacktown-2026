@@ -88,7 +88,7 @@ export function parseFrontmatter(raw) {
   return { data: parseYaml(m[1]), body: raw.slice(m[0].length) };
 }
 
-const needsQuote = (s) => /[:#\-{}\[\]&*!|>'"%@`]|^\s|\s$/.test(s);
+const needsQuote = (s) => /[:#?\-{}\[\]&*!|>'"%@`]|^\s|\s$/.test(s);
 
 /** Serializa um escalar para frontmatter YAML de saída. */
 export function yamlScalar(value) {

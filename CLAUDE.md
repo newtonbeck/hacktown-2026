@@ -32,7 +32,9 @@ tooling/                     ← gerador + templates (versionado)
   escrever neles.
 - Mudança de **conteúdo** → `palestras/<slug>/core/`.
 - Mudança de **tema, layout ou configuração** → `tooling/templates/slidev/` ou
-  `tooling/templates/astro/`, copiados verbatim para a saída.
+  `tooling/templates/astro/`, copiados verbatim para a saída. Um deck pode ter tema próprio em
+  `tooling/templates/slidev-<slug>/`, copiado **por cima** do compartilhado, arquivo a arquivo
+  (é o caso do deck 02, cujo visual vem do Figma — veja o `README.md` dessa pasta).
 - Mudança em **como o core vira slide/página** → `tooling/generate.mjs`.
 - Não há workspaces. Todas as dependências vivem no `package.json` da raiz, e os projetos
   gerados não têm `package.json` próprio: eles resolvem a partir do `node_modules` da raiz
@@ -95,6 +97,14 @@ pode ter zero blocos (só site) ou vários (vários slides).
 Além dos layouts do tema, o deck tem um layout próprio em
 `tooling/templates/slidev/layouts/capitulo.vue`: `<!-- slide:capitulo -->` com um `#` e nada mais
 no corpo. É o slide de respiro que abre um capítulo da palestra — sem bullets, print ou diagrama.
+
+Quando o deck tem tema próprio (`tooling/templates/slidev-<slug>/`), um bloco `<!-- slide -->` sem
+layout (ou `slide:center`) deixa o gerador escolher pelo conteúdo, se o tema tiver o layout
+correspondente: ```` ```mermaid ```` → `diagrama`, outro bloco de código → `codigo`, imagem →
+`imagem`, título `#` → `titulo`, o resto → `lista`. Marcador explícito sempre vence. No mesmo
+caso, `## Título: complemento` vira título mais uma linha menor (`.subtitulo`), e a capa lê
+`capa:` do `palestra.yaml` (`antes`, `destaque`, `depois`, `pontuacao`) para quebrar o título em
+três linhas; sem `capa:`, a capa é só o `titulo`.
 
 ## Diagramas
 

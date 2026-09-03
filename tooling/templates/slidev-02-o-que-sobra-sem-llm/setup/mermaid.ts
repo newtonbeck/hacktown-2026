@@ -1,0 +1,36 @@
+// Diagramas sobre fundo branco (Figma 4:290), na paleta do tema.
+import { defineMermaidSetup } from '@slidev/types'
+
+export default defineMermaidSetup(() => ({
+  theme: 'base',
+  themeVariables: {
+    fontFamily: '"Lexend Deca", "Avenir Next", system-ui, sans-serif',
+    fontSize: '17px',
+    actorFontSize: '18px',
+    messageFontSize: '17px',
+    noteFontSize: '16px',
+    background: '#ffffff',
+    primaryColor: '#e9ebdc',
+    primaryBorderColor: '#606242',
+    primaryTextColor: '#1e2208',
+    secondaryColor: '#f4f5ea',
+    secondaryBorderColor: '#606242',
+    tertiaryColor: '#ffffff',
+    tertiaryBorderColor: '#9a9e78',
+    lineColor: '#1e2208',
+    textColor: '#1e2208',
+    edgeLabelBackground: '#ffffff',
+    clusterBkg: '#f4f5ea',
+    clusterBorder: '#9a9e78',
+    actorBkg: '#e9ebdc',
+    actorBorder: '#606242',
+    actorTextColor: '#1e2208',
+    actorLineColor: '#9a9e78',
+    signalColor: '#1e2208',
+    signalTextColor: '#1e2208',
+    labelBoxBkgColor: '#e9ebdc',
+    labelBoxBorderColor: '#606242',
+    noteBkgColor: '#f4f5ea',
+    noteBorderColor: '#606242',
+  },
+}))

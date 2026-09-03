@@ -50,6 +50,33 @@ const mermaidToDiv = (body) =>
 
 // ---------------------------------------------------------------- slides
 
+/** Templates específicos de um deck (`tooling/templates/slidev-<slug>/`), copiados por cima dos compartilhados. */
+const deckTemplates = (slug) => path.join(TEMPLATES, `slidev-${slug}`);
+
+/**
+ * `<!-- slide -->` sem layout deixa o gerador escolher pelo conteúdo, quando o tema
+ * do deck tem um layout para aquele tipo de slide (diagrama, código, imagem, título
+ * ou lista). Marcador explícito (`capitulo`, `image`, `image-right`…) vence; sem
+ * tema próprio, fica o layout do Slidev.
+ */
+function inferLayout(content) {
+  if (/^```mermaid/m.test(content)) return 'diagrama';
+  if (/^```/m.test(content)) return 'codigo';
+  if (/<img\b|!\[/.test(content)) return 'imagem';
+  if (/^# /m.test(content)) return 'titulo';
+  return 'lista';
+}
+
+function resolveLayout(overlay, layout, content) {
+  if (layout !== 'default' && layout !== 'center') return layout;
+  const inferred = inferLayout(content);
+  return fs.existsSync(path.join(overlay, 'layouts', `${inferred}.vue`)) ? inferred : layout;
+}
+
+/** `## Título: complemento` vira título + linha menor, como no template de diagrama do Figma. */
+const splitSubtitle = (content) =>
+  content.replace(/^## (.+?): (.+)$/m, (_, titulo, resto) => `## ${titulo}\n\n<p class="subtitulo">${resto}</p>`);
+
 function generateSlides(palestras) {
   resetDir(SLIDES_OUT, ['node_modules']);
 
@@ -69,14 +96,28 @@ function generateSlides(palestras) {
     lines.push('  persist: false');
     lines.push('# GERADO por `npm run gen` — edite palestras/' + p.slug + '/core/, não este arquivo.');
     lines.push('layout: cover');
+    // `capa:` do palestra.yaml quebra o título em três linhas (a do meio é o destaque)
+    // e escolhe o sinal gigante ao fundo. Sem `capa:`, a capa é só o título.
+    const capa = p.meta.capa ?? {};
+    if (capa.pontuacao) lines.push(`pontuacao: ${yamlScalar(String(capa.pontuacao))}`);
     lines.push('---');
     lines.push('');
-    lines.push(`# ${p.meta.titulo}`);
+    if (capa.destaque) {
+      if (capa.antes) lines.push(`<p class="capa-antes">${capa.antes}</p>`, '');
+      lines.push(`# ${capa.destaque}`);
+      if (capa.depois) lines.push('', `<p class="capa-depois">${capa.depois}</p>`);
+    } else {
+      lines.push(`# ${p.meta.titulo}`);
+    }
     // O `resumo` fica só no `info:` (painel do apresentador) e no site: um parágrafo
     // inteiro na capa não se lê a cinco metros.
-    const rodape = [p.meta.autor, p.meta.evento].filter(Boolean).join(' · ');
-    if (rodape) lines.push('', `<div class="pt-8 opacity-60">${rodape}</div>`);
+    const assinatura = [p.meta.autor, [p.meta.data, p.meta.evento].filter(Boolean).join(' ')]
+      .filter(Boolean);
+    if (assinatura.length) {
+      lines.push('', `<div class="capa-assinatura">${assinatura.map((l) => `<span>${l}</span>`).join('')}</div>`);
+    }
 
+    const overlay = deckTemplates(p.slug);
     let count = 0;
     for (const section of p.sections) {
       // `slide:` da seção vira default; o marcador do bloco sobrescreve chave a chave.
@@ -84,12 +125,14 @@ function generateSlides(palestras) {
       for (const slide of section.slides) {
         count++;
         lines.push('', '---');
-        lines.push(`layout: ${slide.layout ?? sectionLayout ?? 'default'}`);
+        lines.push(`layout: ${resolveLayout(overlay, slide.layout ?? sectionLayout ?? 'default', slide.content)}`);
         for (const [key, value] of Object.entries({ ...sectionAttrs, ...slide.attrs })) {
           lines.push(`${key}: ${yamlScalar(assetPath(String(value), DECK_ASSETS))}`);
         }
         lines.push('---', '');
-        lines.push(rewriteAssets(slide.content, DECK_ASSETS));
+        let content = rewriteAssets(slide.content, DECK_ASSETS);
+        if (fs.existsSync(overlay)) content = splitSubtitle(content);
+        lines.push(content);
         if (section.data.notas) {
           lines.push('', '<!--', rewriteAssets(section.data.notas, DECK_ASSETS), '-->');
         }
@@ -98,6 +141,8 @@ function generateSlides(palestras) {
 
     write(path.join(deckDir, 'slides.md'), lines.join('\n'));
     fs.cpSync(path.join(TEMPLATES, 'slidev'), deckDir, { recursive: true });
+    // Tema próprio do deck, se houver: sobrepõe arquivo a arquivo o template compartilhado.
+    if (fs.existsSync(overlay)) fs.cpSync(overlay, deckDir, { recursive: true });
     // Slidev serve `public/` do diretório do slides.md na raiz da URL.
     const deckAssets = path.join(p.dir, 'assets');
     if (fs.existsSync(deckAssets)) {
