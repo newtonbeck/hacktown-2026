@@ -16,6 +16,16 @@ fontes:
   - https://www.anthropic.com/news/skills
 ---
 
+<!-- slide:capitulo -->
+# Playbooks e materialização
+<!-- /slide -->
+
+<!-- slide:image image=assets/playbooks-list.png backgroundSize=contain -->
+<!-- /slide -->
+
+<!-- slide:image image=assets/playbook-details.png backgroundSize=contain -->
+<!-- /slide -->
+
 <!-- slide -->
 ## Skill é da empresa, não do usuário
 

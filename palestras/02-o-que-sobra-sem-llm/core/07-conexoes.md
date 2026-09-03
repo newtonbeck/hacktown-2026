@@ -18,6 +18,9 @@ fontes:
 # Conexões
 <!-- /slide -->
 
+<!-- slide:image image=assets/conexoes-ui.png backgroundSize=contain -->
+<!-- /slide -->
+
 <!-- slide -->
 ## Um agente vale pelas ferramentas que alcança
 
@@ -51,3 +54,6 @@ de dezembro — e para elas mantemos as nossas: controle de escopo, de rate limi
 porque é aí que o agente gasta a maior parte do tempo.
 
 A regra prática: compre a cauda longa, construa só a cabeça, e deixe o browser para o resto.
+
+<!-- slide:image image=assets/connection-seo.png backgroundSize=contain -->
+<!-- /slide -->
