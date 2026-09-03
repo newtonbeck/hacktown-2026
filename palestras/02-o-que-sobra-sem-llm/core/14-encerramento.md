@@ -29,4 +29,14 @@ O produto é o harness.
 
 E o harness você já sabe construir.
 
-Perguntas.
+<!-- slide:capitulo -->
+# Perguntas?
+<!-- /slide -->
+
+<!-- slide:center -->
+# Obrigado!
+
+**@newtonbeck** no Twitter, no GitHub e no LinkedIn
+
+**terra.joinground.com**
+<!-- /slide -->
