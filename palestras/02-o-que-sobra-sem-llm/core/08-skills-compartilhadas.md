@@ -49,7 +49,6 @@ descrevendo a restrição central: a River **não responde a mensagens diretas**
 sugere criar um canal público. Toda conversa fica pesquisável, qualquer pessoa pode entrar, e — a
 parte que importa — as skills e instruções que um time escreve ficam disponíveis para os outros.
 
-<!-- slide -->
 ## O argumento do River
 
 > "ChatGPT é uma janela privada. Claude é uma janela privada. Cursor fica entre você e a IDE. Nós tomamos a decisão oposta."
@@ -57,13 +56,18 @@ parte que importa — as skills e instruções que um time escreve ficam dispon�
 > "Não retreinamos um modelo. Não trocamos de modelo. Uma melhora de 36% para 77% em dois meses veio de pessoas observando a River trabalhar, notando onde ela travava, e escrevendo o que ela deveria saber."
 
 *— Tobi Lütke, "Learning on the Shop floor", 9 mai 2026. Números da Shopify, não auditados.*
-<!-- /slide -->
 
 O segundo trecho é a tese desta palestra dita por outra pessoa. A taxa de merge dos PRs da River
 mais que dobrou em dois meses sem nenhuma mudança no modelo. O que mudou foi o que está **ao
 redor**: skills, instruções, memória, contexto escrito pelas pessoas mais próximas do trabalho.
 O post de engenharia que acompanha o texto do Tobi termina com a frase: *"Daqui a dois anos, o
 agente não vai ser a parte interessante. O que está embaixo dele vai."*
+
+<!-- slide -->
+## Mais um sidecar
+
+<img src="assets/sidecar-2.png" alt="A mesma moto, agora com dois cachorros de goggles em dois sidecars lado a lado">
+<!-- /slide -->
 
 <!-- slide -->
 ## Materialização: o banco é a verdade, o disco é cache
@@ -82,6 +86,17 @@ sequenceDiagram
   SC->>BE: baixa tudo de novo
   SC->>FS: escreve SKILL.md
 ```
+<!-- /slide -->
+
+<!-- slide -->
+## Materialização: o banco é a verdade, o disco é cache
+
+- Skills vivem em um **diretório local** do agente
+- Playbook materializado leva o **id no fim do nome**: `warm-outreach-1234`
+- Skill que termina em id **é** playbook — é assim que o sidecar sabe quais são dele
+- A materialização começa **apagando** os playbooks do disco
+- Baixa todos de novo do backend
+- E recria cada um localmente
 <!-- /slide -->
 
 Aqui a decisão de produto encontra a engenharia. O OpenClaw quer skills como pastas com
