@@ -4,7 +4,9 @@ resumo: A pergunta que dá título à palestra e o que ela vai e não vai cobrir
 slide:
   layout: default
 notas: |
-  Abrir pela agenda, sem slide de gancho: a pergunta do título já está na capa.
+  O slide do HackTown é regra da organização: mostrar e seguir. Na apresentação
+  pessoal, não recitar o currículo — dizer só o suficiente para a plateia saber
+  de onde vem o que vai ser contado. Depois, a agenda.
   Nos slides da Ground, não vender: é contexto. O ponto a plantar é que os três
   produtos são modelos pequenos, não LLM — o agente é o primeiro imprevisível.
 ---
@@ -14,6 +16,20 @@ O que sobra ainda é um sistema? Quanto do seu código você teria que jogar for
 Essa é a pergunta que organiza a palestra. A resposta curta, no nosso caso, é: sobra quase tudo.
 O modelo é uma chamada de função no meio de um sistema que tem fila, deploy, volume persistente,
 proxy, banco de dados, webhook, tabela de preços e log. Nada disso sabe o que é um token.
+
+<!-- slide:image image=assets/hacktown-apartidario.png backgroundSize=contain -->
+<!-- /slide -->
+
+<!-- slide -->
+## Newton Beck
+
+**@newtonbeck** no Twitter, no GitHub e no LinkedIn
+
+- +15 anos construindo software
+- **Elo7** e **Nubank**, no Brasil
+- **Personio** e **Perspective**, na Alemanha
+- Hoje: engenharia na **Ground**, em Nova York
+<!-- /slide -->
 
 <!-- slide -->
 ## O que vamos ver

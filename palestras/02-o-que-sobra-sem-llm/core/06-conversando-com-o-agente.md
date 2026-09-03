@@ -26,6 +26,9 @@ Telegram…). Nós criamos o nosso. Ele não escuta em nenhuma porta pública �
 fila. Isso resolve de uma vez autenticação, isolamento entre empresas e a superfície de ataque:
 o agente literalmente não tem como receber uma mensagem que não veio do nosso backend.
 
+<!-- slide:image image=assets/playbook-chat.png backgroundSize=contain -->
+<!-- /slide -->
+
 <!-- slide -->
 ## O caminho de uma mensagem
 
@@ -61,15 +64,33 @@ dados, não no agente.
 <!-- slide -->
 ## Aqui nasce o sidecar
 
-Um processo ao lado do agente, no mesmo serviço, que faz o que o agente não deveria fazer:
+Um **segundo container**, no mesmo host e com o mesmo ciclo de vida do agente, que faz o que o
+agente não deveria fazer:
 
-- Falar com a nossa infra (SQS, backend)
-- Ter credenciais que o agente não precisa ter
-- Ser trocado sem mexer no agente
+- **Fala com a nossa infra** — SQS, backend. O agente não fala.
+- **Guarda as credenciais** que o agente não precisa ter
+- **Conversa com o agente** por `localhost` ou pelo disco compartilhado
+- **É trocado sem mexer** na imagem do agente
 
 ***
 
 *O agente fica burro de propósito. O sidecar é quem conhece a casa.*
+<!-- /slide -->
+
+<!-- slide -->
+## Dois containers, um host
+
+```mermaid
+flowchart LR
+  subgraph H[Host · uma task ECS]
+    direction TB
+    A[Container principal<br/>agente OpenClaw]
+    S[Container sidecar<br/>código nosso]
+    A <-->|localhost| S
+    A -.-|disco compartilhado| S
+  end
+  S <--> I[(Nossa infra<br/>SQS · backend)]
+```
 <!-- /slide -->
 
 Esse é o padrão que vai se repetir na palestra inteira. O OpenClaw é código de terceiros, que
