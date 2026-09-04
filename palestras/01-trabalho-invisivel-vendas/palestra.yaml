@@ -1,10 +1,18 @@
 titulo: O trabalho invisível que a IA está tirando das equipes de vendas
 titulo_curto: Trabalho invisível em vendas
-autor: Newton
+autor: Newton Angelini
 evento: Hacktown 2026
-duracao: 45min
+data: "05.09"
+duracao: 45min + 15min de perguntas
 resumo: >
   A maior parte do tempo de um vendedor não é gasta vendendo, mas pesquisando, organizando
-  informações e preparando contatos. Como agentes de IA assumem esse trabalho invisível — e por
-  que o resultado não é substituir vendedores, mas permitir que equipes pequenas operem em uma
-  escala antes reservada a organizações muito maiores.
+  informações e preparando contatos. Nesta palestra mostro como agentes de IA assumem esse
+  trabalho invisível, integrando diferentes fontes de dados e automatizando etapas que antes
+  consumiam horas. O resultado não é substituir vendedores, mas permitir que equipes pequenas
+  operem em uma escala antes reservada a organizações muito maiores.
+# Capa do deck em três linhas (a do meio é o destaque, e a fonte não quebra: mantenha curta).
+capa:
+  antes: O trabalho
+  destaque: invisível
+  depois: das equipes de vendas
+  pontuacao: "!"
