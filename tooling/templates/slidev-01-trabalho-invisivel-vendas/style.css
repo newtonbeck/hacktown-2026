@@ -81,6 +81,11 @@
   color: var(--t-texto);
 }
 
+/* O tema default do Slidev apaga (opacity .5) o parágrafo logo depois de um h1. */
+#slide-content .slidev-layout h1 + p {
+  opacity: 1;
+}
+
 /* Unbounded não tem itálico; o destaque vira a cor creme dos ícones. */
 .slidev-layout em {
   font-style: normal;
@@ -283,27 +288,53 @@
 
 /* ----------------------------------------------------------- lista */
 
-/* Título e lista (Figma 4:2): nada além da base, mais o L no canto superior direito. */
+/*
+ * Título e lista (Figma 4:2): o bloco título + corpo fica centrado na vertical, para
+ * não sobrar espaço desigual em cima e embaixo, e o L ocupa o canto superior direito.
+ */
 #slide-content .slidev-layout.lista,
 #slide-content .slidev-layout.imagem,
 #slide-content .slidev-layout.codigo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.slidev-layout.lista .corpo,
+.slidev-layout.imagem .corpo,
+.slidev-layout.codigo .corpo {
+  flex: 0 1 auto;
+}
+
+.slidev-layout.lista .corpo > :last-child,
+.slidev-layout.imagem .corpo > :last-child,
+.slidev-layout.codigo .corpo > :last-child {
+  margin-bottom: 0;
 }
 
 /*
- * O texto do Figma tem 820px de largura, mas o L ocupa a coluna a partir de 849px;
- * o corpo para antes dele para nunca passar por baixo do ícone.
+ * O texto do Figma tem 820px de largura, mas o L ocupa a coluna a partir de 828px;
+ * o corpo e o título param antes dele para nunca passar por baixo do ícone.
  */
 .slidev-layout.lista .corpo {
-  width: 740px;
+  width: 725px;
 }
 
+.slidev-layout.lista h2 {
+  max-width: 710px;
+}
+
+/*
+ * O L encostado no canto: a parte visível do SVG vai de 33px a 152px do quadrado de
+ * 185px, e a rotação de 90° para a esquerda deixa as faces escuras voltadas para as
+ * bordas de cima e da direita do slide.
+ */
 .slidev-layout.lista .l-shape {
-  left: 816px;
-  top: 159px;
+  left: 795px;
+  top: -3px;
   width: 185px;
   height: 185px;
+  transform: rotate(-90deg);
 }
 
 /* ------------------------------------------ imagem no slide todo */
@@ -324,11 +355,13 @@
   box-shadow: none;
 }
 
+/* Girado 90° para a direita: as faces escuras apontam para as bordas de baixo e da esquerda. */
 .slidev-layout.image .l-shape {
   left: -1px;
   top: 376px;
   width: 185px;
   height: 185px;
+  transform: rotate(90deg);
 }
 
 /* ---------------------------------------------------------- imagem */
@@ -459,21 +492,24 @@
 /* ------------------------------------------------- título / capítulo */
 
 /*
- * Só título (Figma 4:355): parágrafo de entrada no alto à esquerda, título grande
- * embaixo à direita e o sinal gigante em roxo ao fundo. O título é 240px no design
- * (61px aqui); títulos longos encolhem via `--fit-size` até caberem.
+ * Só título (Figma 4:355): parágrafo de entrada e título grande, alinhados à esquerda
+ * e centrados na vertical como um grupo, com o sinal gigante em roxo ao fundo — o
+ * título corre por cima dele. O título é 240px no design (61px aqui); títulos longos
+ * encolhem via `--fit-size` até caberem.
  */
+/* A margem direita é menor que a do Figma (146px) para o título correr por cima do sinal. */
 #slide-content .slidev-layout.titulo {
   --fit-size: 61.2px;
   display: flex;
   flex-direction: column;
-  padding: 85px 146px 86px 101px;
+  padding: 85px 100px 86px 101px;
   isolation: isolate;
 }
 
 .slidev-layout.titulo .corpo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   overflow: visible;
 }
 
@@ -503,22 +539,51 @@
 
 .slidev-layout.titulo h1 {
   flex: none;
-  width: fit-content;
-  max-width: 733px;
-  margin: auto 0 0 auto;
-  padding-top: 20px;
+  margin: 0;
   font-size: var(--fit-size);
   line-height: 1.24;
-  text-wrap: balance;
 }
 
-/* O que vier depois do título (o slide de agradecimento) fica alinhado a ele. */
+.slidev-layout.titulo .corpo > p + h1 {
+  margin-top: 24px;
+}
+
+/* `# Título, complemento`: o complemento numa linha menor, alinhada à esquerda com o título. */
+.slidev-layout.titulo h1 .titulo-principal,
+.slidev-layout.titulo h1 .titulo-detalhe {
+  display: block;
+}
+
+.slidev-layout.titulo h1 .titulo-detalhe {
+  margin-top: 8px;
+  font-size: 32.7px;
+  line-height: 1.24;
+}
+
+/* O que vier depois do título (o slide de agradecimento) fica alinhado a ele, em branco. */
 .slidev-layout.titulo h1 ~ * {
   flex: none;
   margin: 10px 0 0;
-  text-align: right;
   font-size: 23px;
   line-height: 1.6;
+  opacity: 1;
+}
+
+/*
+ * No parágrafo logo depois do título, um negrito inicial ("@newtonbeck") vira uma linha
+ * própria, maior; o resto da frase fica embaixo, menor, alinhado com ele.
+ */
+.slidev-layout.titulo h1 + p {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.slidev-layout.titulo h1 + p > strong:first-child {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 32.7px;
+  line-height: 1.24;
 }
 
 .slidev-layout.titulo h1 ~ :last-child {

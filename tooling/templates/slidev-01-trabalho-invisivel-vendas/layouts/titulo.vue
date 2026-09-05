@@ -1,19 +1,14 @@
 <!--
   Só título (Figma 4:355): parágrafo de entrada opcional no alto à esquerda, `#`
-  grande embaixo à direita e um sinal gigante em roxo ao fundo — "?" se o título
-  termina em interrogação, "!" nos demais casos. Títulos longos encolhem até caber.
+  grande embaixo à direita, por cima de um sinal gigante em roxo ao fundo. O
+  comportamento (sinal, título com vírgula, encolher e ancorar) está em lib/titulo.ts.
 -->
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useFit } from '../lib/fit'
+import { ref } from 'vue'
+import { useTitulo } from '../lib/titulo'
 
 const root = ref(null)
-const deco = ref('!')
-onMounted(() => {
-  const titulo = root.value?.querySelector('h1')?.textContent?.trim() ?? ''
-  if (titulo.endsWith('?')) deco.value = '?'
-})
-useFit(root, { min: 26 })
+const { deco } = useTitulo(root)
 </script>
 
 <template>

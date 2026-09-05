@@ -12,12 +12,26 @@ const root = ref(null)
 const observers = []
 let timer = null
 
+const MARGEM = 12
+
 function fit(shadow) {
   const svg = shadow.querySelector('svg')
   if (!svg) return
   for (const attr of ['width', 'height']) if (svg.hasAttribute(attr)) svg.removeAttribute(attr)
   const wanted = { width: '100%', height: '100%', maxWidth: 'none' }
   for (const [prop, value] of Object.entries(wanted)) if (svg.style[prop] !== value) svg.style[prop] = value
+  // O mermaid deixa margens largas em volta do desenho; o viewBox passa a ser o
+  // retângulo real do conteúdo, para o diagrama ocupar a caixa inteira e o texto
+  // ficar legível do fundo da sala.
+  try {
+    const b = svg.getBBox()
+    if (!b.width || !b.height) return
+    const viewBox = [b.x - MARGEM, b.y - MARGEM, b.width + 2 * MARGEM, b.height + 2 * MARGEM]
+      .map((n) => Math.round(n * 100) / 100).join(' ')
+    if (svg.getAttribute('viewBox') !== viewBox) svg.setAttribute('viewBox', viewBox)
+  } catch {
+    // getBBox falha se o SVG ainda não foi desenhado; a próxima mutação tenta de novo.
+  }
 }
 
 onMounted(() => {
