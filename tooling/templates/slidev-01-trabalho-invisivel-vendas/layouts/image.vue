@@ -1,13 +1,13 @@
 <!--
-  Imagem no slide todo (Figma 4:46). Substitui o layout nativo `image`, que pintava
-  a imagem como background: aqui ela é um <img> emoldurado sobre a textura, com
-  margem fina. `backgroundSize` continua aceito (vira object-fit) por compatibilidade
-  com os marcadores do core.
+  Imagem grande (Figma 4:46): fundo azul sem a borda marrom, o print quase no slide
+  inteiro e o L no canto inferior esquerdo. Substitui o layout nativo `image`, que
+  pintava a imagem como background. `backgroundSize` vira object-fit, por
+  compatibilidade com os marcadores do core.
 -->
 <script setup>
 defineProps({
   image: { type: String, default: '' },
-  backgroundSize: { type: String, default: 'contain' },
+  backgroundSize: { type: String, default: 'cover' },
 })
 </script>
 
@@ -15,5 +15,6 @@ defineProps({
   <div class="slidev-layout image">
     <img v-if="image" class="image-cheia" :src="image" :style="{ objectFit: backgroundSize }" alt="">
     <slot />
+    <img class="icone l-shape" src="/theme/l-shape.svg" alt="">
   </div>
 </template>

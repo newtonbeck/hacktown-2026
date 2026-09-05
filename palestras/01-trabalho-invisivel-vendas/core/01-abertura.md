@@ -15,7 +15,7 @@ notas: |
   ninguém instala um app de IA sozinho num sábado.
 ---
 
-<!-- slide:image image=assets/hacktown-apartidario.png backgroundSize=contain -->
+<!-- slide:hacktown image=assets/hacktown-apartidario.png -->
 <!-- /slide -->
 
 Quanto do dia de um vendedor é venda? Pergunte para qualquer pessoa de um time comercial onde o

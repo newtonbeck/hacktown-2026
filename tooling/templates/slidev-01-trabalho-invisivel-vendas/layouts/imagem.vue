@@ -1,6 +1,11 @@
-<!-- Layout "imagem": título no alto e conteúdo abaixo. O visual está em style.css. -->
+<!--
+  Layout "imagem": título no alto e um print no corpo do slide. Não tem template no
+  Figma; segue o grid do slide de título e lista (4:2), sem o L.
+-->
 <template>
   <div class="slidev-layout imagem">
-    <slot />
+    <div class="corpo">
+      <slot />
+    </div>
   </div>
 </template>

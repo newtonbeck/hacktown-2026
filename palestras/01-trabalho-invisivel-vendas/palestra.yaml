@@ -10,9 +10,9 @@ resumo: >
   trabalho invisível, integrando diferentes fontes de dados e automatizando etapas que antes
   consumiam horas. O resultado não é substituir vendedores, mas permitir que equipes pequenas
   operem em uma escala antes reservada a organizações muito maiores.
-# Capa do deck em três linhas (a do meio é o destaque, e a fonte não quebra: mantenha curta).
+# Capa do deck em três linhas (Figma, página 1); **negrito** marca as palavras em destaque.
 capa:
-  antes: O trabalho
-  destaque: invisível
-  depois: das equipes de vendas
-  pontuacao: "!"
+  linhas:
+    - O **trabalho invisível**
+    - que a **IA** está tirando
+    - das **equipes de vendas**

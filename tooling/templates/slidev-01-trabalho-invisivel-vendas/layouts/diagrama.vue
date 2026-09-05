@@ -1,8 +1,9 @@
 <!--
-  Layout "diagrama" (Figma 4:290): título no alto e o mermaid numa caixa branca que
-  ocupa o resto do slide. O SVG nasce dentro de um shadow root, fora do alcance do
-  CSS, então este script o força a `width/height: 100%` para caber na caixa
-  preservando a proporção — independentemente do `{scale}` da cerca.
+  Título, descrição opcional e diagrama (Figma 4:290): título no alto, a linha menor
+  vinda de `## Título: complemento`, o mermaid numa caixa branca que ocupa o resto do
+  slide e dois raios no canto superior direito. O SVG nasce dentro de um shadow root,
+  fora do alcance do CSS, então este script o força a `width/height: 100%` para caber
+  na caixa preservando a proporção — independentemente do `{scale}` da cerca.
 -->
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
@@ -48,5 +49,7 @@ onBeforeUnmount(() => {
 <template>
   <div ref="root" class="slidev-layout diagrama">
     <slot />
+    <img class="icone raio-alto" src="/theme/raio.svg" alt="">
+    <img class="icone raio-baixo" src="/theme/raio.svg" alt="">
   </div>
 </template>

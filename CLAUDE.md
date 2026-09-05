@@ -101,10 +101,18 @@ no corpo. É o slide de respiro que abre um capítulo da palestra — sem bullet
 Quando o deck tem tema próprio (`tooling/templates/slidev-<slug>/`), um bloco `<!-- slide -->` sem
 layout (ou `slide:center`) deixa o gerador escolher pelo conteúdo, se o tema tiver o layout
 correspondente: ```` ```mermaid ```` → `diagrama`, outro bloco de código → `codigo`, imagem →
-`imagem`, título `#` → `titulo`, o resto → `lista`. Marcador explícito sempre vence. No mesmo
-caso, `## Título: complemento` vira título mais uma linha menor (`.subtitulo`), e a capa lê
-`capa:` do `palestra.yaml` (`antes`, `destaque`, `depois`, `pontuacao`) para quebrar o título em
-três linhas; sem `capa:`, a capa é só o `titulo`.
+`imagem`, título `#` → `titulo`, só parágrafos sem título → `texto` (senão `lista`), o resto →
+`lista`. Marcador explícito sempre vence. No mesmo caso, `## Título: complemento` vira título
+mais uma linha menor (`.subtitulo`).
+
+A capa lê `capa:` do `palestra.yaml`, em uma de duas formas. `linhas:` (deck 01) é uma lista
+com o título inteiro, uma linha por item, e `**negrito**` marca as palavras em destaque;
+`antes`/`destaque`/`depois`/`pontuacao` (deck 02) quebra o título em três linhas com a do meio
+em destaque e um sinal gigante ao fundo. Sem `capa:`, a capa é só o `titulo`.
+
+O deck 01 tem ainda o layout `hacktown` (`<!-- slide:hacktown image=assets/… -->`), o slide
+obrigatório da organização, desenhado no Figma como uma moldura fixa com a imagem recortada.
+Cada tema de deck tem um `README.md` com a tabela layout ↔ template do Figma.
 
 ## Diagramas
 

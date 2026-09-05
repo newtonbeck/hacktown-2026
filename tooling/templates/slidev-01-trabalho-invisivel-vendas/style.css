@@ -1,36 +1,50 @@
 /*
- * Tema do deck 02 — "O que sobra quando você tira o LLM do seu agente?".
- * Fonte: Figma "LLM - Newton". Slide de 980×552; as medidas abaixo são o design
- * (3840×2160) dividido por 3,92.
+ * Tema do deck 01 — "O trabalho invisível que a IA está tirando das equipes de vendas".
+ * Fonte: Figma "LLM - Newton (Copy)" (Onbl98d5H1beh1glWl08q1), um template por tipo de
+ * slide. O design é 3840×2160 e o slide do Slidev é 980×552: as medidas em px abaixo são
+ * as do Figma divididas por 3,918. O espaçamento entre letras é 10% do corpo em todo texto.
  */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900&family=Lexend+Deca:wght@300..700&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;900&family=JetBrains+Mono:wght@400;600&display=swap');
 
 :root {
-  --t-fundo: #1e2208;
-  --t-oliva: #606242;      /* sinais gigantes, molduras */
-  --t-oliva-claro: #9a9e78;
+  --t-fundo: #0a0c32;
+  --t-creme: #efe2d7;       /* preenchimento dos ícones */
+  --t-roxo: #4e528a;        /* sinal gigante do slide de título */
   --t-texto: #ffffff;
-  --t-moldura: rgb(255 255 255 / 0.85);
-  --t-fonte-titulo: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
-  --t-fonte-texto: 'Lexend Deca', 'Avenir Next', system-ui, sans-serif;
+  --t-fonte: 'Unbounded', 'Avenir Next', system-ui, sans-serif;
   --t-fonte-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --slidev-theme-primary: var(--t-oliva);
+  --slidev-theme-primary: var(--t-roxo);
 }
 
 /* ------------------------------------------------------------ base */
 
+/*
+ * Padding é o do template de título e lista (Figma 4:2): título em (98, 47) e o
+ * corpo até 47px do rodapé. `--fit-size` é o corpo do texto; lib/fit.ts reduz esse
+ * valor quando o conteúdo não cabe no slide.
+ */
 #slide-content .slidev-layout {
+  --fit-size: 23px;
   position: relative;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: 76px 100px 40px;
+  padding: 47px 62px 47px 98px;
   overflow: hidden;
   background: var(--t-fundo) url('/theme/fundo.jpg') center / cover no-repeat;
   color: var(--t-texto);
-  font-family: var(--t-fonte-texto);
-  font-size: 19px;
-  line-height: 1.7;
+  font-family: var(--t-fonte);
+  font-weight: 400;
+  font-size: var(--fit-size);
+  line-height: 1.774;          /* 160px sobre 90px no Figma */
+  letter-spacing: 0.1em;
+}
+
+/* Conteúdo do slide; é o que lib/fit.ts mede para decidir se o texto cabe. */
+.slidev-layout .corpo {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .slidev-layout h1,
@@ -38,37 +52,28 @@
 .slidev-layout h3,
 .slidev-layout h4 {
   margin: 0;
-  font-family: var(--t-fonte-titulo);
-  font-stretch: 125%;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 0;
+  font-family: var(--t-fonte);
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--t-texto);
 }
 
+/* Título do slide (Figma 4:2): 128px no design; o corpo começa 75px abaixo dele. */
 .slidev-layout h2 {
-  font-size: 34px;
-  margin-bottom: 40px;
+  font-size: 32.7px;
+  margin-bottom: 34.5px;
   text-wrap: balance;
 }
 
 .slidev-layout h3 {
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-
-/* `## Título: complemento` vira título + linha menor (Figma 4:290). */
-.slidev-layout h2 + .subtitulo {
-  margin: -30px 0 28px;
   font-size: 23px;
-  line-height: 1.3;
-  color: var(--t-texto);
-  opacity: 0.9;
+  margin-bottom: 12px;
 }
 
 .slidev-layout p {
-  margin: 0 0 14px;
+  margin: 0 0 0.7em;
 }
 
 .slidev-layout strong {
@@ -76,19 +81,26 @@
   color: var(--t-texto);
 }
 
+/* Unbounded não tem itálico; o destaque vira a cor creme dos ícones. */
 .slidev-layout em {
-  color: rgb(255 255 255 / 0.78);
+  font-style: normal;
+  color: var(--t-creme);
 }
 
 .slidev-layout a {
   color: var(--t-texto);
-  border-bottom: 1px solid var(--t-oliva-claro);
+  border-bottom: 1px solid var(--t-creme);
 }
 
 .slidev-layout ul,
 .slidev-layout ol {
-  margin: 0 0 14px;
-  padding-left: 1.5em;
+  margin: 0 0 0.7em;
+  padding-left: 1.3em;
+}
+
+/* Lista numerada (Figma 4:2): o número fica 20px para dentro e o texto 49px, no design. */
+.slidev-layout ol {
+  padding-left: 2.1em;
 }
 
 .slidev-layout ul > li,
@@ -98,35 +110,26 @@
 
 .slidev-layout li::marker {
   color: var(--t-texto);
+  font-weight: 600;
 }
 
 .slidev-layout hr {
-  margin: 18px 0;
+  margin: 0.8em 0;
   border: 0;
-  border-top: 1px solid var(--t-oliva-claro);
+  border-top: 1px solid var(--t-creme);
   opacity: 0.6;
 }
 
-.slidev-layout blockquote {
-  margin: 0 0 14px;
-  padding-left: 18px;
-  border-left: 3px solid var(--t-oliva-claro);
-  font-style: italic;
-  color: rgb(255 255 255 / 0.85);
-}
-
-/*
-  O tema default do Slidev pinta blockquote com fundo claro e cantos redondos —
-  sobre a textura escura isso vira caixa branca com texto branco, ilegível. Aqui
-  a citação é só a barra à esquerda, e maior: ela é para ser lida da plateia.
-*/
+/* O tema default do Slidev pinta blockquote com fundo claro; aqui é só a barra creme. */
 #slide-content .slidev-layout blockquote {
-  background: none;
+  margin: 0 0 0.7em;
+  padding: 0.1em 0 0.1em 0.9em;
+  border-left: 3px solid var(--t-creme);
   border-radius: 0;
-  padding: 2px 0 2px 20px;
-  font-size: 22px;
-  line-height: 1.45;
-  color: rgb(255 255 255 / 0.88);
+  background: none;
+  font-size: 1em;
+  line-height: inherit;
+  color: var(--t-texto);
 }
 
 #slide-content .slidev-layout blockquote p {
@@ -137,254 +140,405 @@
 .slidev-layout code:not(pre code) {
   font-family: var(--t-fonte-mono);
   font-size: 0.85em;
+  letter-spacing: 0;
   padding: 0.05em 0.35em;
   border-radius: 4px;
   background: rgb(255 255 255 / 0.12);
 }
 
-/* Tabelas: mais densas que o texto corrido para caberem no slide. */
+/* Tabelas: Unbounded é larga; a tabela fica mais densa que o texto corrido. */
 .slidev-layout table {
   width: 100%;
-  margin: 0 0 14px;
+  margin: 0 0 0.7em;
   border-collapse: collapse;
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: 0.7em;
+  line-height: 1.5;
 }
 
 .slidev-layout th,
 .slidev-layout td {
-  padding: 8px 12px;
+  padding: 0.45em 0.7em;
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid rgb(255 255 255 / 0.22);
+  border-bottom: 1px solid rgb(255 255 255 / 0.25);
 }
 
 .slidev-layout th {
-  font-family: var(--t-fonte-titulo);
-  font-stretch: 125%;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  font-size: 0.85em;
   text-transform: uppercase;
-  color: var(--t-oliva-claro);
-  border-bottom-color: var(--t-oliva-claro);
+  color: var(--t-creme);
+  border-bottom-color: var(--t-creme);
 }
 
-/* Prints e imagens: moldura clara sobre a textura. */
+/* Imagens: sem moldura, como no Figma; só a sombra do slide do HackTown (14:205). */
 .slidev-layout img {
   display: block;
   max-width: 100%;
   max-height: 320px;
-  border: 2px solid var(--t-moldura);
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgb(0 0 0 / 0.45);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 0.25);
 }
 
-/* Escapes do core: class="full" para imagem sem título, class="plain" sem moldura. */
+/* Escapes do core: class="full" para imagem sem título, class="plain" sem sombra. */
 .slidev-layout img.full {
   max-height: 400px;
 }
 
 .slidev-layout img.plain {
-  border: 0;
-  border-radius: 0;
   box-shadow: none;
 }
 
-/* Sinal gigante em oliva, atrás do texto (capa e slides de título). */
-.slidev-layout .deco {
+/* Ícones "retro" do Figma (raio e L), sempre absolutos e fora do fluxo do texto. */
+.slidev-layout .icone {
   position: absolute;
-  z-index: -1;
-  font-family: var(--t-fonte-titulo);
-  font-stretch: 125%;
-  font-weight: 700;
-  font-size: 430px;
-  line-height: 1;
-  color: var(--t-oliva);
+  max-height: none;
+  box-shadow: none;
   pointer-events: none;
   user-select: none;
 }
 
 /* ------------------------------------------------------------ capa */
 
-/* `isolation` deixa o sinal (z-index -1) atrás do texto, mas acima da textura. */
-.slidev-layout.cover,
-.slidev-layout.titulo {
-  isolation: isolate;
-}
-
+/* Capa (Figma, página 1): título centralizado em três linhas, assinatura e o raio. */
 #slide-content .slidev-layout.cover {
   padding: 0;
 }
 
-.slidev-layout.cover .deco {
-  left: 690px;
-  top: -30px;
-}
-
-/* Em fluxo (não posicionado) para a assinatura, absoluta, se referir ao slide inteiro. */
-.slidev-layout.cover .cover-texto {
-  margin: 92px 0 0 129px;
-  width: 722px;
-}
-
-.slidev-layout.cover .capa-antes,
-.slidev-layout.cover .capa-depois {
-  margin: 0;
-  font-family: var(--t-fonte-titulo);
-  font-stretch: 125%;
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.slidev-layout.cover .capa-depois {
-  margin-top: 6px;
-  text-align: right;
-}
-
 .slidev-layout.cover h1 {
+  position: absolute;
+  left: 51px;
+  top: 81px;
+  width: 878px;
   margin: 0;
-  font-size: 102px;
-  line-height: 1;
-  letter-spacing: -0.01em;
+  text-align: center;
+  font-size: 48.5px;
+  line-height: 76.6px;
   white-space: nowrap;
+}
+
+.slidev-layout.cover h1 strong {
+  font-weight: 900;
 }
 
 .slidev-layout.cover .capa-assinatura {
   position: absolute;
-  right: 137px;
-  top: 397px;
-  text-align: right;
-}
-
-.slidev-layout.cover .capa-assinatura span {
-  display: block;
-  font-family: var(--t-fonte-titulo);
-  font-stretch: 125%;
-  font-weight: 700;
-  font-size: 25px;
-  line-height: 1.2;
+  left: 52px;
+  right: 51px;
+  top: 404px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 23px;
+  line-height: 1.24;
   text-transform: uppercase;
 }
 
-.slidev-layout.cover .capa-assinatura span + span {
-  margin-top: 12px;
-  font-size: 17px;
+.slidev-layout.cover .capa-autor {
+  font-weight: 600;
 }
 
-.slidev-layout.cover .cover-mascote {
-  position: absolute;
-  z-index: 2;
-  left: -1px;
-  top: 245px;
-  width: 392px;
-  max-height: none;
+/* Sem `capa.linhas` no palestra.yaml, o gerador emite a assinatura genérica em spans. */
+.slidev-layout.cover .capa-assinatura > span:first-child {
+  font-weight: 600;
 }
 
-/* ------------------------------------------------- título / capítulo */
+.slidev-layout.cover .cover-raio {
+  left: 462px;
+  top: 352px;
+  width: 86px;
+  height: 149px;
+}
 
-#slide-content .slidev-layout.titulo {
+/* ----------------------------------------------------------- texto */
+
+/* Só texto (Figma 4:127): coluna à esquerda, centrada na vertical, dois raios à direita. */
+#slide-content .slidev-layout.texto {
   display: flex;
   flex-direction: column;
-  padding: 90px 100px 60px;
+  justify-content: center;
+  padding: 102px 0 102px 71px;
 }
 
-.slidev-layout.titulo .deco {
-  right: 96px;
-  top: 40px;
+.slidev-layout.texto .corpo {
+  flex: 0 1 auto;
+  width: 654px;
 }
 
-.slidev-layout.titulo .titulo-texto {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+.slidev-layout.texto .corpo > :last-child {
+  margin-bottom: 0;
 }
 
-/* Parágrafo de entrada, antes do título, no alto à esquerda. */
-.slidev-layout.titulo .titulo-texto > p:first-child:not(:last-child) {
-  max-width: 790px;
-  margin: 0 0 24px;
-  font-size: 28px;
-  line-height: 1.5;
+.slidev-layout.texto .raio-alto {
+  left: 739px;
+  top: 81px;
+  width: 96px;
+  height: 167px;
 }
 
-.slidev-layout.titulo h1 {
-  max-width: 600px;
-  margin: auto 0 0 30%;
-  font-size: 58px;
-  line-height: 1.05;
-}
-
-.slidev-layout.titulo h1 ~ * {
-  margin: 12px 0 0 30%;
-  font-size: 22px;
-  line-height: 1.5;
-}
-
-.slidev-layout.titulo .titulo-texto > :last-child {
-  margin-bottom: auto;
+.slidev-layout.texto .raio-baixo {
+  left: 818px;
+  top: 262px;
+  width: 112px;
+  height: 216px;
 }
 
 /* ----------------------------------------------------------- lista */
 
-/* Nada além da base: título no alto, corpo abaixo (Figma 4:2). */
+/* Título e lista (Figma 4:2): nada além da base, mais o L no canto superior direito. */
+#slide-content .slidev-layout.lista,
+#slide-content .slidev-layout.imagem,
+#slide-content .slidev-layout.codigo {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+ * O texto do Figma tem 820px de largura, mas o L ocupa a coluna a partir de 849px;
+ * o corpo para antes dele para nunca passar por baixo do ícone.
+ */
+.slidev-layout.lista .corpo {
+  width: 740px;
+}
+
+.slidev-layout.lista .l-shape {
+  left: 816px;
+  top: 159px;
+  width: 185px;
+  height: 185px;
+}
+
+/* ------------------------------------------ imagem no slide todo */
+
+/* Imagem grande (Figma 4:46): fundo azul sem a borda marrom, print a 58px da borda, L embaixo. */
+#slide-content .slidev-layout.image {
+  padding: 0;
+  background-image: url('/theme/fundo-azul.jpg');
+}
+
+.slidev-layout.image .image-cheia {
+  position: absolute;
+  left: 58px;
+  top: 30px;
+  width: 863px;
+  height: 492px;
+  max-height: none;
+  box-shadow: none;
+}
+
+.slidev-layout.image .l-shape {
+  left: -1px;
+  top: 376px;
+  width: 185px;
+  height: 185px;
+}
 
 /* ---------------------------------------------------------- imagem */
 
-.slidev-layout.imagem {
+/* Título e print no corpo do slide. Sem template no Figma: segue o de título e lista. */
+.slidev-layout.imagem .corpo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.slidev-layout.imagem:not(:has(h2)) {
+.slidev-layout.imagem .corpo:not(:has(h2)) {
   justify-content: center;
   align-items: center;
 }
 
-.slidev-layout.imagem h2 ~ img.full,
-.slidev-layout.imagem h2 ~ p img.full {
+.slidev-layout.imagem img {
   max-height: 330px;
 }
 
 .slidev-layout.imagem img + p,
 .slidev-layout.imagem p:has(img) + p {
-  margin: 14px 0 0;
-  font-size: 17px;
-  line-height: 1.5;
+  margin: 12px 0 0;
+  font-size: 0.8em;
   opacity: 0.9;
 }
 
-/* ------------------------------------------ imagem no slide todo */
+/* -------------------------------------------------------- hacktown */
 
-#slide-content .slidev-layout.image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 34px;
+/* Slide obrigatório do HackTown (Figma 14:205): a imagem recortada, com sombra, sobre o fundo. */
+#slide-content .slidev-layout.hacktown {
+  padding: 0;
 }
 
-.slidev-layout.image .image-cheia {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+.slidev-layout.hacktown .moldura {
+  position: absolute;
+  left: 195px;
+  top: 74px;
+  width: 589px;
+  height: 403px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 0.25);
+}
+
+/* O recorte é o do Figma: a imagem 16:9 ampliada e deslocada para cortar as margens brancas. */
+.slidev-layout.hacktown .moldura img {
+  position: absolute;
+  left: -25.12%;
+  top: -16.69%;
+  width: 150.9%;
+  height: 124.03%;
+  max-width: none;
+  max-height: none;
+  box-shadow: none;
+}
+
+/* -------------------------------------------------------- diagrama */
+
+/*
+ * Título, descrição opcional e diagrama (Figma 4:290): título em (103, 42), a linha
+ * menor logo abaixo e a caixa branca de 788×330 a 72px do rodapé. O SVG do mermaid
+ * nasce num shadow root fora do alcance deste CSS; diagrama.vue o força a 100%.
+ */
+#slide-content .slidev-layout.diagrama {
+  display: flex;
+  flex-direction: column;
+  padding: 42px 96px 72px 103px;
+}
+
+/* O título para antes dos raios (que começam em 784px). */
+.slidev-layout.diagrama h2 {
+  max-width: 670px;
+  margin: 0;
+  line-height: 40.8px;
+  text-wrap: balance;
+}
+
+.slidev-layout.diagrama h2 + .subtitulo {
+  margin: 5px 0 0;
+  font-size: 23px;
+  line-height: 40.8px;
+  font-weight: 500;
+}
+
+/*
+ * `letter-spacing` e `line-height` são herdados e atravessam o shadow root do mermaid,
+ * que mede os rótulos sem eles e depois os desenha alargados — cortando o texto.
+ */
+.slidev-layout .mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.slidev-layout.diagrama .mermaid {
+  flex: 1;
+  min-height: 0;
+  width: 788px;
+  margin: 21px 0 0 -7px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #1e1e1e;
+}
+
+.slidev-layout.diagrama .mermaid + p {
+  flex: none;
+  margin: 12px 0 0;
+  font-size: 0.8em;
+}
+
+.slidev-layout.diagrama .raio-alto {
+  left: 839px;
+  top: 35px;
+  width: 58px;
+  height: 100px;
+}
+
+.slidev-layout.diagrama .raio-baixo {
+  left: 784px;
+  top: 60px;
+  width: 43px;
+  height: 75px;
+}
+
+/* ------------------------------------------------- título / capítulo */
+
+/*
+ * Só título (Figma 4:355): parágrafo de entrada no alto à esquerda, título grande
+ * embaixo à direita e o sinal gigante em roxo ao fundo. O título é 240px no design
+ * (61px aqui); títulos longos encolhem via `--fit-size` até caberem.
+ */
+#slide-content .slidev-layout.titulo {
+  --fit-size: 61.2px;
+  display: flex;
+  flex-direction: column;
+  padding: 85px 146px 86px 101px;
+  isolation: isolate;
+}
+
+.slidev-layout.titulo .corpo {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.slidev-layout.titulo .deco {
+  position: absolute;
+  z-index: -1;
+  left: 762px;
+  top: 37px;
+  font-family: var(--t-fonte);
+  font-weight: 600;
+  font-size: 459px;
+  line-height: 1.24;
+  letter-spacing: 0.1em;
+  color: var(--t-roxo);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Parágrafo de entrada: 128px no design, largura de 789px. */
+.slidev-layout.titulo .corpo > p:first-child:not(:last-child) {
+  flex: none;
+  max-width: 789px;
+  margin: 0;
+  font-size: 32.7px;
+  line-height: 1.247;
+}
+
+.slidev-layout.titulo h1 {
+  flex: none;
+  width: fit-content;
+  max-width: 733px;
+  margin: auto 0 0 auto;
+  padding-top: 20px;
+  font-size: var(--fit-size);
+  line-height: 1.24;
+  text-wrap: balance;
+}
+
+/* O que vier depois do título (o slide de agradecimento) fica alinhado a ele. */
+.slidev-layout.titulo h1 ~ * {
+  flex: none;
+  margin: 10px 0 0;
+  text-align: right;
+  font-size: 23px;
+  line-height: 1.6;
+}
+
+.slidev-layout.titulo h1 ~ :last-child {
+  margin-bottom: 0;
 }
 
 /* ---------------------------------------------------------- código */
 
+/* Sem template no Figma: caixa escura sobre o fundo, no mesmo grid do slide de lista. */
 .slidev-layout pre,
 .slidev-layout .slidev-code {
   margin: 0 0 22px;
   padding: 14px 18px;
   border: 1px solid rgb(255 255 255 / 0.18);
-  border-radius: 8px;
-  background: #111309 !important;
+  border-radius: 4px;
+  background: #06071f !important;
   font-family: var(--t-fonte-mono);
   font-size: 14px;
   line-height: 1.5;
+  letter-spacing: 0;
 }
 
 .slidev-layout.codigo .slidev-code-wrapper {
@@ -397,45 +551,4 @@
   margin: 0;
   min-width: 60%;
   max-width: 100%;
-}
-
-.slidev-layout.codigo ul,
-.slidev-layout.codigo ol {
-  font-size: 18px;
-  line-height: 1.55;
-}
-
-/* -------------------------------------------------------- diagrama */
-
-/*
- * O SVG do mermaid nasce dentro de um shadow root e este CSS não o alcança; o que
- * dá para estilizar é o contêiner. Para caber na altura, use a opção do Slidev na
- * cerca do bloco: ```mermaid {scale: 0.6}
- */
-.slidev-layout .mermaid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.slidev-layout.diagrama {
-  display: flex;
-  flex-direction: column;
-}
-
-.slidev-layout.diagrama .mermaid {
-  flex: 1;
-  min-height: 0;
-  width: 100%;
-  padding: 10px 16px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #1e2208;
-}
-
-.slidev-layout.diagrama .mermaid + p {
-  flex: none;
-  margin: 16px 0 0;
-  font-size: 17px;
 }

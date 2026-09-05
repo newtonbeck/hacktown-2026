@@ -60,17 +60,21 @@ const deckTemplates = (slug) => path.join(TEMPLATES, `slidev-${slug}`);
  * tema próprio, fica o layout do Slidev.
  */
 function inferLayout(content) {
-  if (/^```mermaid/m.test(content)) return 'diagrama';
-  if (/^```/m.test(content)) return 'codigo';
-  if (/<img\b|!\[/.test(content)) return 'imagem';
-  if (/^# /m.test(content)) return 'titulo';
-  return 'lista';
+  if (/^```mermaid/m.test(content)) return ['diagrama'];
+  if (/^```/m.test(content)) return ['codigo'];
+  if (/<img\b|!\[/.test(content)) return ['imagem'];
+  if (/^# /m.test(content)) return ['titulo'];
+  // Só parágrafos, sem título: `texto` se o tema tiver; senão o slide de lista.
+  if (!/^#{2,} /m.test(content)) return ['texto', 'lista'];
+  return ['lista'];
 }
 
 function resolveLayout(overlay, layout, content) {
   if (layout !== 'default' && layout !== 'center') return layout;
-  const inferred = inferLayout(content);
-  return fs.existsSync(path.join(overlay, 'layouts', `${inferred}.vue`)) ? inferred : layout;
+  for (const inferred of inferLayout(content)) {
+    if (fs.existsSync(path.join(overlay, 'layouts', `${inferred}.vue`))) return inferred;
+  }
+  return layout;
 }
 
 /** `## Título: complemento` vira título + linha menor, como no template de diagrama do Figma. */
@@ -96,25 +100,38 @@ function generateSlides(palestras) {
     lines.push('  persist: false');
     lines.push('# GERADO por `npm run gen` — edite palestras/' + p.slug + '/core/, não este arquivo.');
     lines.push('layout: cover');
-    // `capa:` do palestra.yaml quebra o título em três linhas (a do meio é o destaque)
-    // e escolhe o sinal gigante ao fundo. Sem `capa:`, a capa é só o título.
+    // `capa:` do palestra.yaml decide como o título vira capa. Duas formas:
+    // - `linhas:` (deck 01): o título inteiro num só `#`, uma linha por item, com
+    //   `**negrito**` marcando as palavras em destaque; assinatura em autor e evento.
+    // - `antes`/`destaque`/`depois` (deck 02): três linhas, a do meio é o destaque, e
+    //   `pontuacao` escolhe o sinal gigante ao fundo.
+    // Sem `capa:`, a capa é só o título.
     const capa = p.meta.capa ?? {};
     if (capa.pontuacao) lines.push(`pontuacao: ${yamlScalar(String(capa.pontuacao))}`);
     lines.push('---');
     lines.push('');
-    if (capa.destaque) {
-      if (capa.antes) lines.push(`<p class="capa-antes">${capa.antes}</p>`, '');
-      lines.push(`# ${capa.destaque}`);
-      if (capa.depois) lines.push('', `<p class="capa-depois">${capa.depois}</p>`);
-    } else {
-      lines.push(`# ${p.meta.titulo}`);
-    }
     // O `resumo` fica só no `info:` (painel do apresentador) e no site: um parágrafo
     // inteiro na capa não se lê a cinco metros.
-    const assinatura = [p.meta.autor, [p.meta.data, p.meta.evento].filter(Boolean).join(' ')]
-      .filter(Boolean);
-    if (assinatura.length) {
-      lines.push('', `<div class="capa-assinatura">${assinatura.map((l) => `<span>${l}</span>`).join('')}</div>`);
+    if (Array.isArray(capa.linhas) && capa.linhas.length) {
+      lines.push(`# ${capa.linhas.join('<br>')}`);
+      const assinatura = [
+        p.meta.autor && `<span class="capa-autor">${p.meta.autor}</span>`,
+        p.meta.evento && `<span class="capa-evento">${p.meta.evento}</span>`,
+      ].filter(Boolean);
+      if (assinatura.length) lines.push('', `<div class="capa-assinatura">${assinatura.join('')}</div>`);
+    } else {
+      if (capa.destaque) {
+        if (capa.antes) lines.push(`<p class="capa-antes">${capa.antes}</p>`, '');
+        lines.push(`# ${capa.destaque}`);
+        if (capa.depois) lines.push('', `<p class="capa-depois">${capa.depois}</p>`);
+      } else {
+        lines.push(`# ${p.meta.titulo}`);
+      }
+      const assinatura = [p.meta.autor, [p.meta.data, p.meta.evento].filter(Boolean).join(' ')]
+        .filter(Boolean);
+      if (assinatura.length) {
+        lines.push('', `<div class="capa-assinatura">${assinatura.map((l) => `<span>${l}</span>`).join('')}</div>`);
+      }
     }
 
     const overlay = deckTemplates(p.slug);
