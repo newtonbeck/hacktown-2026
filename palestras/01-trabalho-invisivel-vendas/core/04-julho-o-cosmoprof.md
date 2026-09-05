@@ -8,6 +8,8 @@ notas: |
   No slide do pareamento: enfatizar que eu não perguntei "o que você precisa que
   eu automatize". Perguntei "me mostra o que você faz". São coisas diferentes.
   Nos sete passos: ler devagar, um por um. É o slide que a plateia vai fotografar.
+  A demo vem logo depois: deixar pronta antes de subir ao palco e cronometrar.
+  Se estourar o tempo, cortar a demo — o resto da seção se sustenta sem ela.
   No funil: dizer os números e deixar a tabela na tela. Não explicar cada linha —
   ela se explica.
   PRINT PENDENTE: screenshot da sessão do Cowork. Salvar o arquivo como
@@ -63,6 +65,16 @@ instruções para alguém que não conhece o processo.
 6. Follow-up 1, depois de um dia
 7. Follow-up 2, depois de dois dias
 <!-- /slide -->
+
+<!-- slide:center -->
+Vamos ver na prática como criar as skills.
+
+# Demo
+<!-- /slide -->
+
+Aqui eu saio do slide e mostro ao vivo: o documento dos sete passos virando uma skill, e a skill
+rodando. É o mesmo texto que você acabou de ler na tela — a única diferença é que agora quem
+executa não sou eu.
 
 Vale dizer o que cada ferramenta é, porque provavelmente ninguém aqui usa nenhuma das duas.
 

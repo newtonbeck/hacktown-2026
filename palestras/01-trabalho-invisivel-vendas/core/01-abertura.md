@@ -50,9 +50,8 @@ comercial.
 ## O que vamos ver
 
 1. **Como a Ground vende** — sales-led, cold email, duas pessoas
-2. **O trabalho invisível** — onde o dia vai antes de qualquer conversa
-3. **Julho: o Cosmoprof** — o dia em que eu sentei do lado da pessoa de vendas
-4. **Agosto: o Growth Command Center** — quando a skill virou software
+2. **Julho: o Cosmoprof** — o dia em que eu sentei do lado da pessoa de vendas
+3. **Agosto: o Growth Command Center** — quando a skill virou software
 <!-- /slide -->
 
 <!-- slide:image image=assets/ground-landing.png -->

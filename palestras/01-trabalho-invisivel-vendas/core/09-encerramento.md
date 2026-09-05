@@ -4,13 +4,14 @@ resumo: O padrão que apareceu duas vezes, o que fazer na segunda-feira e o limi
 slide:
   layout: default
 notas: |
-  3 minutos. Terminar na frase da IA e não adicionar nada depois.
-  No slide do método: essa é a única coisa que a plateia pode fazer amanhã.
-  Dizer devagar, é o take-away.
+  3 minutos. No slide do método: essa é a única coisa que a plateia pode fazer
+  amanhã. Dizer devagar, é o take-away.
+  A frase de fecho — "a IA não te dá o insight, ela derruba o custo de agir
+  sobre ele" — é falada com o slide do método ainda na tela. Não adicionar nada
+  depois dela.
   Depois: perguntas — 15 minutos.
 ---
 
-<!-- slide -->
 ## A mesma forma, duas vezes
 
 | | Julho | Agosto |
@@ -19,7 +20,6 @@ notas: |
 | O que eu fiz | sentei do lado e escrevi | sentei do lado e escrevi |
 | O que saiu | uma **skill** | um **software** |
 | O que entregou | 8 demos, uma vez | 0, 3, 7 e contando |
-<!-- /slide -->
 
 Quatro semanas separam essas duas colunas, e ninguém combinou nada. É o mesmo movimento feito duas
 vezes, em canais diferentes, com pessoas diferentes.
@@ -49,12 +49,10 @@ E não pare no passo 3 para sempre. Enquanto o processo é raro, a skill está c
 rotina, o custo em atenção passa a ser maior que o custo de escrever o software — e você não
 percebe isso na fatura, porque a assinatura é a mesma.
 
-<!-- slide:center -->
 A Sheida levou quatro meses testando canais para ver o gap. Depois de ver, o software levou três
 semanas.
 
 # A IA não te dá o insight — ela derruba o custo de agir sobre ele
-<!-- /slide -->
 
 Essa é a frase com que eu quero terminar, porque ela é o contrário do que se vende por aí.
 

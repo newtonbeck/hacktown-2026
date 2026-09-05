@@ -7,9 +7,10 @@ notas: |
   Aqui é a resposta da pergunta que abriu a palestra. Não correr.
   Cada uma das quatro categorias precisa de um exemplo concreto — se der, pedir
   um da plateia.
-  Cuidado com o tom no slide dos campos mesclados: metade da sala usa essas
+  Cuidado com o tom ao falar dos campos mesclados: metade da sala usa essas
   ferramentas. O ponto não é que são ruins, é que resolvem a etapa errada.
-  O slide "ele migra" é a tese da palestra inteira. Dizer devagar.
+  "Ele migra" não tem slide, é falado — e é a tese da palestra inteira. Dizer
+  devagar, com a lista das quatro categorias ainda na tela.
 fontes:
   - https://thedigitalbloom.com/learn/cold-outbound-reply-rate-benchmarks/
   - https://instantly.ai/blog/cold-email-reply-rate-benchmarks/
@@ -41,24 +42,15 @@ comerciais têm dos próprios dados.
 **Preparação** é onde as três anteriores viram uma frase. É a etapa mais visível e a mais
 dependente das outras: preparação boa com pesquisa ruim produz mensagem confiante e errada.
 
-<!-- slide -->
-## A geração anterior automatizou o envio
-
-Não o entendimento.
-
-<code v-pre>{{primeiro_nome}}</code>, <code v-pre>{{empresa}}</code>, <code v-pre>{{cargo}}</code>
-
-Mais volume, mesma qualidade de contexto. Resposta média em cold email: **8,5% em 2019, ~5% em 2025**.
-<!-- /slide -->
-
-A onda anterior de ferramentas comerciais foi construída em cima de uma suposição razoável:
-se o gargalo é o tempo, aumente a vazão. Sequenciadores, templates com variáveis, cadências
-automáticas, discadores. Tudo isso ataca a etapa de execução.
+A geração anterior de ferramentas automatizou o envio, não o entendimento. Ela foi construída em
+cima de uma suposição razoável: se o gargalo é o tempo, aumente a vazão. Sequenciadores, templates
+com variáveis — `{{primeiro_nome}}`, `{{empresa}}`, `{{cargo}}` —, cadências automáticas,
+discadores. Tudo isso ataca a etapa de execução.
 
 Só que a etapa de execução nunca foi o gargalo. O gargalo é chegar a um entendimento sobre
 com quem se está falando e por que aquela conversa faz sentido **agora**. Automatizar o envio sem
 resolver o entendimento produz exatamente o que o mercado produziu: mais mensagens, mais
-genéricas, com taxas de resposta em queda contínua.
+genéricas, com taxas de resposta em queda contínua — de **8,5% em 2019 para ~5% em 2025**.
 
 Pior: como o custo marginal de enviar caiu para perto de zero, o incentivo virou volume. A
 personalização virou um campo mesclado, que é uma imitação sintática de contexto. O
@@ -67,14 +59,9 @@ destinatário aprende a reconhecer o padrão em dois segundos.
 Guarde essa crítica também. Na seção 5 aparece o contra-exemplo — uma frase de sete palavras que
 não é campo mesclado nenhum.
 
-<!-- slide:center -->
-O trabalho invisível não é eliminado quando você resolve um canal.
-
-# Ele migra
-<!-- /slide -->
-
-Essa é a frase que atravessa a palestra inteira, e ela é a razão pela qual as duas metades do que
-vem a seguir são a mesma história.
+O trabalho invisível não é eliminado quando você resolve um canal: **ele migra**. Essa é a frase
+que atravessa a palestra inteira, e ela é a razão pela qual as duas metades do que vem a seguir
+são a mesma história.
 
 Cold outbound cria um tipo de trabalho invisível: pesquisar empresa, checar se ela serve, achar
 a pessoa certa. Resolvido isso, o canal seguinte cria outro: quem leu, quem visitou a página de

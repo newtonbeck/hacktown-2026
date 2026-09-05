@@ -8,10 +8,11 @@ notas: |
   No slide do abstract: ler a frase citada em voz alta, dizer "isso descreve
   julho com precisão", pausar, e depois "e é só metade".
   Na linha do tempo: apontar 14 de julho e 12 de agosto. Quatro semanas.
-  No slide do custo marginal: NÃO inventar número de dólar. Nós não medimos,
-  porque era assinatura fixa — e o ponto é exatamente esse.
-  O último slide é uma concessão deliberada. Fazer ela de cara limpa: se soar
-  como estratégia planejada, a plateia deixa de acreditar no resto.
+  Signal-led, os benchmarks de vendas e o custo marginal são falados em cima da
+  linha do tempo, sem slide. No custo marginal, NÃO inventar número de dólar:
+  nós não medimos, porque era assinatura fixa — e o ponto é exatamente esse.
+  O slide que fecha a seção é uma concessão deliberada. Fazer ela de cara limpa:
+  se soar como estratégia planejada, a plateia deixa de acreditar no resto.
 fontes:
   - https://www.saas-capital.com/blog-posts/spending-benchmarks-for-private-b2b-saas-companies/
   - https://www.saastr.com/b2b-startups-spend-15-of-revenue-on-sales-and-10-on-marketing-per-saas-capital
@@ -54,7 +55,6 @@ O que faltava eu não tinha como saber, porque ainda não havia acontecido.
 Do Cosmoprof até este palco são oito semanas. Do dia em que submeti esta palestra até o primeiro
 commit da coisa que virou o final dela, quatro.
 
-<!-- slide -->
 ## Quatro canais, quatro meses
 
 A Sheida entrou em **março** e testou Instagram, TikTok, LinkedIn e Substack.
@@ -62,10 +62,9 @@ A Sheida entrou em **março** e testou Instagram, TikTok, LinkedIn e Substack.
 Só no **fim de julho** ela viu o que estava na frente da gente.
 
 E os canais não se substituíram — eles se **acumularam**. O cold email nunca parou.
-<!-- /slide -->
 
-Duas coisas nesse slide merecem ser ditas em voz alta, porque as duas contrariam a narrativa
-confortável de startup.
+Duas coisas aí merecem ser ditas em voz alta, porque as duas contrariam a narrativa confortável
+de startup.
 
 A primeira: **quatro meses.** Não foi um insight de banho, não foi um framework, não foi uma
 ferramenta de IA que apontou a oportunidade. Foi uma pessoa testando canal por canal, com pouco
@@ -76,13 +75,11 @@ escada — primeiro outbound, depois inbound, depois signal. Não foi isso. As d
 continuaram mandando cold email o tempo inteiro. A newsletter continuou saindo. Cada canal novo
 somou um trabalho invisível novo em cima do que já existia.
 
-<!-- slide -->
 ## Três palavras, não duas
 
 - **Product-led** — a pessoa se cadastra sozinha
 - **Sales-led** — alguém fala com ela primeiro
 - **Signal-led** — alguém fala com ela primeiro, mas a **lista vem do próprio sinal**
-<!-- /slide -->
 
 Nós continuamos sales-led. Não mudou o modelo, não mudou o time, não mudou quem manda o e-mail.
 
@@ -90,13 +87,11 @@ O que mudou foi **de onde vem a lista**. Antes ela vinha de fora: Storeleads, Ap
 expositores. Agora uma parte dela vem de dentro — de quem leu a newsletter, clicou no anúncio,
 visitou a página de preço. Sinal que a própria empresa produziu e que estava sendo jogado no lixo.
 
-<!-- slide -->
 ## Software escala. Vender nunca escalou.
 
 - Copiar o software para o próximo cliente custa **quase zero**
 - Ir buscar esse cliente custa **15% da receita em vendas + 8% em marketing** (mediana em SaaS)
 - Em empresa comprando mercado: **40% a 60% da receita**
-<!-- /slide -->
 
 Essa é a pergunta que eu queria plantar na cabeça de vocês: por que as empresas de software
 cresceram tanto na última década?
@@ -114,7 +109,6 @@ como o produto escala.
 Nós somos sales-led. Escolhemos, na prática, não resolver distribuição pelo produto. Então sobrou
 o outro caminho: fazer o **trabalho invisível atrás da venda** escalar como software escala.
 
-<!-- slide -->
 ## Com agente, o custo marginal voltou
 
 Software: a milésima cópia custa **zero**.
@@ -122,7 +116,6 @@ Software: a milésima cópia custa **zero**.
 Agente: a milésima execução custa **de novo**.
 
 E no nosso caso o custo não era em dólar — era assinatura fixa. Então ele apareceu em outro lugar.
-<!-- /slide -->
 
 Aqui está a parte que eu não esperava entender fazendo esta palestra.
 

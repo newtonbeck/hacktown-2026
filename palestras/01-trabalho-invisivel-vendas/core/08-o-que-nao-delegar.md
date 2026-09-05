@@ -4,22 +4,21 @@ resumo: Os limites onde entregar o trabalho ao agente custa mais caro do que faz
 slide:
   layout: default
 notas: |
-  3 minutos. Seção curta e firme — é ela que dá credibilidade ao resto.
+  3 minutos, sem slide nenhum: seção falada, curta e firme — é ela que dá
+  credibilidade ao resto. As quatro fronteiras e a resposta sobre dados estão
+  no site, para quem quiser depois.
   Sobre erros do agente: eu não tenho um caso bom para contar, e é melhor dizer
   isso do que inventar. Se vier na pergunta, a resposta honesta é "não tivemos
   um erro caro ainda, e isso é sorte combinada com revisão humana no fim".
-  Se aparecer um antes da palestra, é AQUI que ele entra — um slide, direto.
-  No slide de LGPD: não posar de advogado. Dizer o que a gente faz e onde para.
+  Na parte de LGPD: não posar de advogado. Dizer o que a gente faz e onde para.
 ---
 
-<!-- slide -->
 ## Não delegue
 
 - **Afirmação sobre o cliente sem fonte** — contexto sem procedência é chute com confiança
 - **A decisão de enviar** — o gargalo bom é o único que sobrou
 - **Julgamento de relacionamento** — timing, tom, política interna da conta
 - **Preço e compromisso** — nunca
-<!-- /slide -->
 
 Cada uma dessas fronteiras existe por um motivo diferente.
 
@@ -42,14 +41,12 @@ um caso em que o agente afirmou uma bobagem e aquilo chegou num cliente. Prefiro
 inventar uma história de aprendizado — e desconfio que a explicação seja metade revisão humana no
 fim, metade sorte, num volume que ainda é pequeno.
 
-<!-- slide -->
 ## "E os dados dessas pessoas?"
 
 - Contato **profissional**, para assunto profissional
 - Lista **pública** de expositores; contatos de base B2B licenciada
 - **Opt-out** em todo e-mail, e ele é respeitado
 - Empresa americana, mercado americano — e eu não sou advogado
-<!-- /slide -->
 
 Essa pergunta é legítima e vale a resposta completa, não uma esquiva.
 
