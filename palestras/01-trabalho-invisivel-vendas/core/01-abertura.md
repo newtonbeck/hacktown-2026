@@ -5,25 +5,21 @@ slide:
   layout: default
 notas: |
   O slide do HackTown é regra da organização: mostrar e seguir.
-  Na pergunta, pedir mão levantada de verdade e esperar. Não responder ainda —
-  a resposta é a seção 3.
+  A pergunta de abertura é falada, não está em slide: pedir mão levantada de
+  verdade e esperar. Não responder ainda — a resposta é a seção 3.
   Na apresentação pessoal, não recitar currículo: só o suficiente para a plateia
-  saber de onde vem o que vai ser contado.
+  saber de onde vem o que vai ser contado. Depois, a agenda.
   Nos slides da Ground, não vender. O ponto a plantar é o ICP: ele não é detalhe
   de negócio, é o critério que torna o resto automatizável.
-  No slide de 14 de julho: dizer, deixar a plateia curiosa e SEGUIR. Não explicar
-  agora — o payoff é a seção 6.
+  No slide das duas formas de crescer, usar o exemplo concreto, não a definição:
+  ninguém instala um app de IA sozinho num sábado.
 ---
 
 <!-- slide:image image=assets/hacktown-apartidario.png backgroundSize=contain -->
 <!-- /slide -->
 
-<!-- slide:center -->
-# Quanto do dia de um vendedor é venda?
-<!-- /slide -->
-
-Pergunte para qualquer pessoa de um time comercial onde o dia dela foi. A resposta quase nunca
-é "vendendo".
+Quanto do dia de um vendedor é venda? Pergunte para qualquer pessoa de um time comercial onde o
+dia dela foi. A resposta quase nunca é "vendendo".
 
 Todo time de vendas tem uma narrativa sobre si mesmo: pessoas que conversam com clientes,
 negociam e fecham. É essa a atividade que o cargo descreve, é ela que as metas medem e é ela
@@ -50,6 +46,15 @@ comercial.
 - Hoje: engenharia na **Ground**, em Nova York
 <!-- /slide -->
 
+<!-- slide -->
+## O que vamos ver
+
+1. **Como a Ground vende** — sales-led, cold email, duas pessoas
+2. **O trabalho invisível** — onde o dia vai antes de qualquer conversa
+3. **Julho: o Cosmoprof** — o dia em que eu sentei do lado da pessoa de vendas
+4. **Agosto: o Growth Command Center** — quando a skill virou software
+<!-- /slide -->
+
 <!-- slide:image image=assets/ground-landing.png -->
 <!-- /slide -->
 
@@ -61,7 +66,7 @@ Empresa de IA em Nova York. Nossos clientes são lojas Shopify.
 - **Greet AI** — escolhe o melhor momento de mostrar o pop-up de oferta
 - **ReCartify** — identifica o visitante para disparar fluxos de abandono
 - **ReBeat AI** — sugere o próximo produto para quem já comprou
-- **O agente** — trabalha ao lado do time que opera a loja
+- **Terra AI Agent** — trabalha ao lado do time que opera a loja
 <!-- /slide -->
 
 Os três primeiros produtos são modelos pequenos, treinados para uma tarefa, medidos em receita
@@ -91,19 +96,19 @@ agente, tanto faz. Se o seu ICP não cabe em condições que dão para checar, n
 seguir funciona, e o problema não é de tecnologia.
 
 <!-- slide -->
-## O que vamos ver
+## Duas formas de crescer
 
-1. **Como a Ground vende** — sales-led, cold email, duas pessoas
-2. **O trabalho invisível** — onde o dia vai antes de qualquer conversa
-3. **Julho: o Cosmoprof** — o dia em que eu sentei do lado da pessoa de vendas
-4. **Agosto: o Growth Command Center** — quando a skill virou software
+| Product-led | Sales-led |
+| --- | --- |
+| A pessoa se cadastra sozinha | Alguém precisa falar com ela primeiro |
+| O produto faz a venda | O produto fecha depois da conversa |
+| Escala com tráfego | Escala com gente |
+| Slack, Notion, Figma | Salesforce, SAP, **Ground** |
 <!-- /slide -->
 
-<!-- slide:center -->
+Essa é a segunda coisa a guardar: para vender para aquela lista, a Ground é sales-led. Como isso
+funciona na prática é a próxima seção.
+
 Submeti essa palestra no dia **14 de julho** — um dia depois de acabar o evento que é o exemplo
-central dela.
-
-# O último terço não existia
-<!-- /slide -->
-
-Isso não é um problema da palestra. É o assunto dela. Guarde a data.
+central dela. O último terço dela não existia. Isso não é um problema da palestra: é o assunto
+dela. Guarde a data.

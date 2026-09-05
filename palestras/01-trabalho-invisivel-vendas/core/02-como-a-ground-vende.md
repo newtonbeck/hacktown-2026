@@ -1,6 +1,6 @@
 ---
 titulo: Como a Ground vende
-resumo: Sales-led e product-led em um slide, e o número que precisa estar de pé antes de falar de agente.
+resumo: Por que a Ground é sales-led, e o número que precisa estar de pé antes de falar de agente.
 slide:
   layout: default
 notas: |
@@ -18,18 +18,8 @@ fontes:
   - https://instantly.ai/blog/cold-email-reply-rate-benchmarks/
 ---
 
-<!-- slide -->
-## Duas formas de crescer
-
-| Product-led | Sales-led |
-| --- | --- |
-| A pessoa se cadastra sozinha | Alguém precisa falar com ela primeiro |
-| O produto faz a venda | O produto fecha depois da conversa |
-| Escala com tráfego | Escala com gente |
-| Slack, Notion, Figma | Salesforce, SAP, **Ground** |
-<!-- /slide -->
-
-Vale um minuto nessa distinção, porque ela decide tudo o que vem depois.
+Vale um minuto na distinção entre product-led e sales-led, porque ela decide tudo o que vem
+depois.
 
 Em **product-led**, a pessoa descobre o produto, se cadastra, usa e paga sem falar com ninguém.
 O crescimento vem de tráfego, onboarding e produto. É o modelo que dominou a última década de
