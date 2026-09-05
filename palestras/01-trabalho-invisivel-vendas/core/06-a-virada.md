@@ -20,7 +20,7 @@ fontes:
 ---
 
 <!-- slide:capitulo -->
-# O que mudou depois de 14 de julho
+# O que mudou<br>depois de<br>14 de julho
 <!-- /slide -->
 
 <!-- slide -->
@@ -46,7 +46,7 @@ O que faltava eu não tinha como saber, porque ainda não havia acontecido.
 | Quando | O quê |
 | --- | --- |
 | março | Sheida entra em growth; testa Instagram, TikTok, LinkedIn, Substack |
-| **11–13 de julho** | **Cosmoprof** — a skill, 8 demos, 3 clientes |
+| **11–13 de julho** | **Cosmoprof**: a skill, 8 demos, 3 clientes |
 | **14 de julho** | esta palestra é submetida ao HackTown |
 | fim de julho | a descoberta |
 | **12 de agosto** | primeiro PR do **Growth Command Center** |

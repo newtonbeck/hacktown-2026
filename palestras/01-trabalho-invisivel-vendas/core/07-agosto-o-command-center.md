@@ -59,7 +59,7 @@ flowchart LR
 <!-- /slide -->
 
 <!-- slide:center -->
-Vamos ver o Command Center rodando.
+Vamos ver o Command Center rodando
 
 # Demo 2
 <!-- /slide -->
@@ -86,7 +86,7 @@ terceira vez.
 | --- | --- |
 | 1 | **0** |
 | 2 | **3** |
-| 3 | **7** — e é esta semana |
+| 3 | **7**: e é esta semana |
 <!-- /slide -->
 
 Duas ressalvas, e as duas eu prefiro fazer antes de alguém fazer.
@@ -136,7 +136,7 @@ pessoas. E aí ele entraria na fila de priorização contra o produto que o clie
 **perderia**. Ferramenta interna sempre perde essa briga, em toda empresa, sempre.
 
 <!-- slide:center -->
-A IA não deixou o software mais rápido de escrever.
+A IA não deixou o software mais rápido de escrever
 
 # Ela deixou barato o suficiente para não competir com o roadmap
 <!-- /slide -->

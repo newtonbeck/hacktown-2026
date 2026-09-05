@@ -76,7 +76,7 @@ tirando aquilo que nunca cabia na semana dele.
 <!-- slide:center -->
 # Obrigado!
 
-**@newtonbeck** no Twitter, no GitHub e no LinkedIn
+**@newtonbeck** Twitter, GitHub e LinkedIn
 
 **terra.joinground.com**
 <!-- /slide -->

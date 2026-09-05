@@ -27,10 +27,11 @@ palavras em destaque da capa.
 grande), `raio.svg` e `l-shape.svg` (os ícones "retro", que o Figma estica sem preservar a
 proporção — por isso `preserveAspectRatio="none"`).
 
-Nos layouts `titulo` e `capitulo`, um `#` com vírgula ("Cosmoprof, 11 a 13 de julho") vira o
+Nos layouts `titulo` e `capitulo`, o "?" ou "!" final do título sai do texto — o sinal gigante
+ao fundo já o representa ("Perguntas", "Obrigado"). Um `#` com vírgula ("Cosmoprof, 11 a 13 de julho") vira o
 título grande mais o complemento numa linha menor abaixo, alinhada à esquerda com ele
-(`lib/titulo.ts`). Parágrafo de entrada e título ficam alinhados à esquerda e centrados na
-vertical como um grupo, e o título corre por cima do sinal gigante — ajuste pedido por Newton
+(`lib/titulo.ts`). Parágrafo de entrada à esquerda, título grande alinhado à direita, os dois
+centrados na vertical como um grupo, e o título corre por cima do sinal gigante — ajuste pedido por Newton
 sobre o desenho do Figma, que põe o título embaixo à direita.
 
 `lib/fit.ts` mede o `.corpo` de cada slide depois do mount e encolhe `--fit-size` até o

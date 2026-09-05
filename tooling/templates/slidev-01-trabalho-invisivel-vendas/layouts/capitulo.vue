@@ -13,7 +13,7 @@ const { deco } = useTitulo(root)
 
 <template>
   <div ref="root" class="slidev-layout titulo capitulo">
-    <div class="deco" aria-hidden="true">{{ deco }}</div>
+    <div class="deco" :class="{ 'deco-interrogacao': deco === '?' }" aria-hidden="true">{{ deco }}</div>
     <div class="corpo">
       <slot />
     </div>

@@ -43,15 +43,15 @@ comercial.
 - Bacharel em **Ciência & Tecnologia** pela **UFABC**
 - **Elo7** e **Nubank**, no Brasil
 - **Personio** e **Perspective**, na Alemanha
-- Hoje: engenharia na **Ground**, em Nova York
+- **Hoje**: engenharia na **Ground**, em Nova York
 <!-- /slide -->
 
 <!-- slide -->
 ## O que vamos ver
 
-1. **Como a Ground vende** — sales-led, cold email, duas pessoas
-2. **Julho: o Cosmoprof** — o dia em que eu sentei do lado da pessoa de vendas
-3. **Agosto: o Growth Command Center** — quando a skill virou software
+1. **Como a Ground vende**: sales-led, cold email, duas pessoas
+2. **Julho: o Cosmoprof**: o dia em que eu sentei do lado da pessoa de vendas
+3. **Agosto: o Growth Command Center**: quando a skill virou software
 <!-- /slide -->
 
 <!-- slide:image image=assets/ground-landing.png -->
@@ -62,10 +62,10 @@ comercial.
 
 Empresa de IA em Nova York. Nossos clientes são lojas Shopify.
 
-- **Greet AI** — escolhe o melhor momento de mostrar o pop-up de oferta
-- **ReCartify** — identifica o visitante para disparar fluxos de abandono
-- **ReBeat AI** — sugere o próximo produto para quem já comprou
-- **Terra AI Agent** — trabalha ao lado do time que opera a loja
+- **Greet AI**: escolhe o melhor momento de mostrar o pop-up de oferta
+- **ReCartify**: identifica o visitante para disparar fluxos de abandono
+- **ReBeat AI**: sugere o próximo produto para quem já comprou
+- **Terra AI Agent**: trabalha ao lado do time que opera a loja
 <!-- /slide -->
 
 Os três primeiros produtos são modelos pequenos, treinados para uma tarefa, medidos em receita
@@ -78,7 +78,7 @@ próprio trabalho interno, não só para o produto.
 
 E-commerces em **Shopify**, grandes o suficiente para ter um time de marketing:
 
-- Mais de **US$ 3 milhões** de faturamento por ano
+- Mais de **US$ 3 milhões** de faturamento por ano
 - Mais de **20 mil visitantes** por mês
 - Marketing em **Klaviyo**, **Attentive** ou **Postscript**
 <!-- /slide -->

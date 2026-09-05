@@ -19,10 +19,10 @@ fontes:
 <!-- slide -->
 ## O que consome o dia
 
-- **Pesquisa** — quem é essa empresa, quem decide, o que mudou
-- **Enriquecimento** — juntar sinais espalhados em fontes que não conversam
-- **Higiene de CRM** — registrar, atualizar, corrigir, deduplicar
-- **Preparação** — transformar tudo isso em uma mensagem que faça sentido
+- **Pesquisa**: quem é essa empresa, quem decide, o que mudou
+- **Enriquecimento**: juntar sinais espalhados em fontes que não conversam
+- **Higiene de CRM**: registrar, atualizar, corrigir, deduplicar
+- **Preparação**: transformar tudo isso em uma mensagem que faça sentido
 <!-- /slide -->
 
 Vale separar essas quatro coisas, porque elas falham por motivos diferentes e se automatizam

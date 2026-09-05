@@ -30,7 +30,7 @@ cliente, mostrar por que aquilo faz sentido para ele, negociar. O crescimento ve
 conversando com pessoas.
 
 <!-- slide:center -->
-Nenhuma loja Shopify acorda pensando em instalar um app de IA.
+Nenhuma loja Shopify acorda pensando em instalar um app de IA
 
 # Alguém tem que falar primeiro
 <!-- /slide -->
@@ -41,15 +41,15 @@ liga isso num sábado por curiosidade. Precisa de conversa, precisa de confianç
 lado, precisa de alguém que entenda de e-commerce o suficiente para a conversa valer.
 
 <!-- slide -->
-## Chegamos a US$ 2 milhões de ARR
+## Chegamos a US$ 2 milhões de ARR
 
-- **Duas pessoas** em vendas — sempre foram duas
+- **Duas pessoas** em vendas: sempre foram duas
 - **100% cold email**: lista, mensagem, follow-up 1, follow-up 2
-- ~**US$ 1 milhão de ARR por pessoa**
+- ~**US$ 1 milhão de ARR por pessoa**
 <!-- /slide -->
 
-O número de referência do mercado para produtividade de vendas em SaaS é de US$ 500 mil a
-US$ 1 milhão de ARR por vendedor — e, em SMB, a cota típica de um AE fica entre US$ 600 e
+O número de referência do mercado para produtividade de vendas em SaaS é de US$ 500 mil a
+US$ 1 milhão de ARR por vendedor — e, em SMB, a cota típica de um AE fica entre US$ 600 e
 900 mil, normalmente **com** um SDR fazendo a prospecção para ele.
 
 Duas pessoas, sem SDR, no topo dessa faixa.
@@ -64,7 +64,7 @@ foi possível, e é isso que o resto da palestra conta.
 
 - **B2B**, para empresas que expõem em feira do setor
 - Contato de trabalho, assunto de trabalho, opt-out em todo e-mail
-- **ICP estreito** — 426 marcas viraram 146
+- **ICP estreito**: 426 marcas viraram 146
 - E o juiz honesto: a **taxa de resposta**
 <!-- /slide -->
 

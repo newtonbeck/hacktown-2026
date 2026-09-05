@@ -72,8 +72,17 @@
   margin-bottom: 12px;
 }
 
+/* O tema default do Slidev fixa a altura de linha do parágrafo; aqui ela é a mesma da lista. */
 .slidev-layout p {
   margin: 0 0 0.7em;
+  line-height: inherit;
+}
+
+/* Evita uma palavra sozinha na última linha ("por / ano"). */
+.slidev-layout p,
+.slidev-layout li,
+.slidev-layout td {
+  text-wrap: pretty;
 }
 
 .slidev-layout strong {
@@ -86,10 +95,10 @@
   opacity: 1;
 }
 
-/* Unbounded não tem itálico; o destaque vira a cor creme dos ícones. */
+/* Unbounded não tem itálico e todo texto é branco: o destaque fica só nas aspas do próprio texto. */
 .slidev-layout em {
   font-style: normal;
-  color: var(--t-creme);
+  color: var(--t-texto);
 }
 
 .slidev-layout a {
@@ -151,29 +160,29 @@
   background: rgb(255 255 255 / 0.12);
 }
 
-/* Tabelas: Unbounded é larga; a tabela fica mais densa que o texto corrido. */
+/* Tabelas: quase o corpo do texto; lib/fit.ts encolhe se não couber. */
 .slidev-layout table {
   width: 100%;
   margin: 0 0 0.7em;
   border-collapse: collapse;
-  font-size: 0.7em;
-  line-height: 1.5;
+  font-size: 0.92em;
+  line-height: 1.45;
 }
 
+/* Tudo em branco, inclusive as linhas: nada de creme nem cinza na tabela. */
 .slidev-layout th,
 .slidev-layout td {
   padding: 0.45em 0.7em;
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid rgb(255 255 255 / 0.25);
+  color: var(--t-texto);
+  border-bottom: 1px solid var(--t-texto);
 }
 
 .slidev-layout th {
   font-weight: 600;
-  font-size: 0.85em;
+  font-size: 0.75em;
   text-transform: uppercase;
-  color: var(--t-creme);
-  border-bottom-color: var(--t-creme);
 }
 
 /* Imagens: sem moldura, como no Figma; só a sombra do slide do HackTown (14:205). */
@@ -516,7 +525,7 @@
 .slidev-layout.titulo .deco {
   position: absolute;
   z-index: -1;
-  left: 762px;
+  right: 10px;
   top: 37px;
   font-family: var(--t-fonte);
   font-weight: 600;
@@ -537,11 +546,13 @@
   line-height: 1.247;
 }
 
+/* O título grande é alinhado à direita; o parágrafo de entrada fica à esquerda. */
 .slidev-layout.titulo h1 {
   flex: none;
   margin: 0;
   font-size: var(--fit-size);
   line-height: 1.24;
+  text-align: right;
 }
 
 .slidev-layout.titulo .corpo > p + h1 {
@@ -566,6 +577,7 @@
   margin: 10px 0 0;
   font-size: 23px;
   line-height: 1.6;
+  text-align: right;
   opacity: 1;
 }
 

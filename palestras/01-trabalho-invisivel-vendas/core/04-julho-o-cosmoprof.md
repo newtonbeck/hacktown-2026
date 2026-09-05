@@ -71,7 +71,7 @@ instruções para alguém que não conhece o processo.
 <!-- /slide -->
 
 <!-- slide:center -->
-Vamos ver na prática como criar as skills.
+Vamos ver na prática como criar as skills
 
 # Demo
 <!-- /slide -->
@@ -97,7 +97,7 @@ follow-up são a parte que qualquer sequenciador de 2015 já fazia.
 
 - Loja em **Shopify**
 - Mais de **20 mil visitantes** por mês
-- Mais de **US$ 3 milhões** por ano
+- Mais de **US$ 3 milhões** por ano
 
 É a mesma lista de três condições do começo da palestra, e agora ela está fazendo trabalho.
 
@@ -118,13 +118,13 @@ sem agente.
 | Contatos encontrados no Apollo | **184** |
 | Demos agendadas | **8** |
 | Viraram clientes | **3** |
-| ARR adicionado | **+US$ 30 mil** |
+| ARR adicionado | **+US$ 30 mil** |
 <!-- /slide -->
 
 <!-- slide -->
 ## Três taxas
 
-- **34%** passaram no filtro — dois terços da lista morreram no passo 3
+- **34%** passaram no filtro: dois terços da lista morreram no passo 3
 - **4,3%** dos contatos agendaram demo
 - **37,5%** das demos viraram cliente
 <!-- /slide -->
@@ -146,9 +146,9 @@ quando a conversa só acontece com quem realmente serve, ela fecha muito mais.
 <!-- slide -->
 ## Duas horas
 
-- **2 horas** — pareamento com a pessoa de vendas e a skill pronta
-- **~19 horas** — a mesma rodada à mão, só nos passos 2 e 4 *(estimativa)*
-- **US$ 30 mil** de ARR
+- **2 horas**: pareamento com a pessoa de vendas e a skill pronta
+- **~19 horas**: a mesma rodada à mão, só nos passos 2 e 4 *(estimativa)*
+- **US$ 30 mil** de ARR
 <!-- /slide -->
 
 A conta das 19 horas é uma estimativa explícita, e eu prefiro mostrá-la a inventar precisão:
