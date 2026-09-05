@@ -11,8 +11,9 @@ notas: |
   Signal-led, os benchmarks de vendas e o custo marginal são falados em cima da
   linha do tempo, sem slide. No custo marginal, NÃO inventar número de dólar:
   nós não medimos, porque era assinatura fixa — e o ponto é exatamente esse.
-  O slide que fecha a seção é uma concessão deliberada. Fazer ela de cara limpa:
-  se soar como estratégia planejada, a plateia deixa de acreditar no resto.
+  Fechar a seção com a concessão — observação, não estratégia — falada, sem
+  slide. Fazer ela de cara limpa: se soar como estratégia planejada, a plateia
+  deixa de acreditar no resto.
 fontes:
   - https://www.saas-capital.com/blog-posts/spending-benchmarks-for-private-b2b-saas-companies/
   - https://www.saastr.com/b2b-startups-spend-15-of-revenue-on-sales-and-10-on-marketing-per-saas-capital
@@ -47,7 +48,7 @@ O que faltava eu não tinha como saber, porque ainda não havia acontecido.
 | março | Sheida entra em growth; testa Instagram, TikTok, LinkedIn, Substack |
 | **11–13 de julho** | **Cosmoprof** — a skill, 8 demos, 3 clientes |
 | **14 de julho** | esta palestra é submetida ao HackTown |
-| fim de julho | a percepção |
+| fim de julho | a descoberta |
 | **12 de agosto** | primeiro PR do **Growth Command Center** |
 | hoje | terceira semana rodando |
 <!-- /slide -->
@@ -132,12 +133,10 @@ O custo real da skill do Cosmoprof não era o token. Era a **atenção**: algué
 que era hoje, abrir a sessão, colar a lista, acompanhar, tratar a saída, decidir rodar de novo. E
 atenção de duas pessoas de vendas é o recurso mais escasso que existe naquela empresa.
 
-<!-- slide:center -->
 O Cosmoprof e o Command Center têm quatro semanas de distância e gatilhos completamente
 diferentes.
 
 # Isso é observação, não estratégia
-<!-- /slide -->
 
 Preciso ser honesto sobre uma coisa, senão o resto perde valor.
 

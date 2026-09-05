@@ -10,12 +10,16 @@ notas: |
   Nos sete passos: ler devagar, um por um. É o slide que a plateia vai fotografar.
   A demo vem logo depois: deixar pronta antes de subir ao palco e cronometrar.
   Se estourar o tempo, cortar a demo — o resto da seção se sustenta sem ela.
-  No funil: dizer os números e deixar a tabela na tela. Não explicar cada linha —
+  Nos resultados: dizer os números e deixar a tabela na tela. Não explicar cada
+  linha —
   ela se explica.
+  O passo 3 — o ICP fazendo o filtro — e o "alguém ainda tinha que decidir
+  rodar" são falados, sem slide. O segundo abre a segunda metade da palestra:
+  dizer e emendar no capítulo seguinte.
   PRINT PENDENTE: screenshot da sessão do Cowork. Salvar o arquivo como
   cowork-cosmoprof.png na pasta de assets desta palestra e inserir, no core,
-  entre o slide do filtro e o do funil, um bloco de slide com o marcador
-  slide:image apontando para ele (mesma forma dos prints do deck 02).
+  antes do slide dos resultados, um bloco de slide com o marcador slide:image
+  apontando para ele (mesma forma dos prints do deck 02).
 fontes:
   - https://www.cleverly.co/blog/cold-email-benchmarks-by-industry
   - https://www.builtforb2b.com/blog/b2b-cold-email-benchmark-2025
@@ -89,13 +93,11 @@ Repare na forma dos sete passos. Os passos 1 a 4 são inteiramente **pesquisa e 
 as duas primeiras categorias da seção anterior. O passo 5 é **preparação**. Só o envio e o
 follow-up são a parte que qualquer sequenciador de 2015 já fazia.
 
-<!-- slide -->
 ## O passo 3 é o que torna o resto possível
 
 - Loja em **Shopify**
 - Mais de **20 mil visitantes** por mês
 - Mais de **US$ 3 milhões** por ano
-<!-- /slide -->
 
 É a mesma lista de três condições do começo da palestra, e agora ela está fazendo trabalho.
 
@@ -107,7 +109,7 @@ fosse "avalie se a marca tem cara de quem compraria", nada disso teria funcionad
 sem agente.
 
 <!-- slide -->
-## O funil
+## Os resultados
 
 | Etapa | Número |
 | --- | --- |
@@ -157,11 +159,9 @@ Duas pessoas de vendas não têm 19 horas para gastar em um evento. É por isso 
 não era feito — não porque alguém decidiu não fazer, mas porque ele nunca cabia na semana. **A
 maior parte do trabalho invisível não é feito mal; ele simplesmente não é feito.**
 
-<!-- slide:center -->
 A skill entregou 8 demos. Uma vez.
 
 # Alguém ainda tinha que decidir rodar
-<!-- /slide -->
 
 E essa é a frase que abre a segunda metade da palestra.
 

@@ -4,20 +4,20 @@ resumo: Por que a lista de expositores do ano anterior funcionou melhor que a do
 slide:
   layout: default
 notas: |
-  Seção curta: 3 minutos. É a que a plateia consegue usar na segunda-feira.
-  No slide do ice breaker: ler a frase em voz alta e deixar no ar. É a resposta
-  ao slide de campos mesclados da seção 3 — fazer o callback explícito.
-  No último slide, olhar para a plateia e dizer: o seu setor tem o Cosmoprof dele.
+  Seção curta e falada: 3 minutos, sem slide. É a que a plateia consegue usar
+  na segunda-feira; o texto inteiro está no site para quem quiser depois.
+  O ice breaker — "você foi ano passado, vai de novo esse ano?" — se diz em voz
+  alta e se deixa no ar. É a resposta aos campos mesclados da seção 3 — fazer o
+  callback explícito.
+  Fechar olhando para a plateia: o seu setor tem o Cosmoprof dele.
 ---
 
-<!-- slide -->
 ## A lista não era do evento deste ano
 
 - A lista do ano corrente, no site, era **pequena**
 - A do **ano anterior** era muito maior
 - Hipótese: quem expôs no ano passado volta esse ano
 - E dá um gancho: *"você foi ano passado, vai de novo?"*
-<!-- /slide -->
 
 Esse detalhe parece prosaico e é a melhor ideia da história toda.
 
@@ -37,11 +37,9 @@ cedo, um mês depois é irrelevante.
 **A lista era o filtro. O evento era o timing.** São duas funções separadas, e confundir as duas
 é o que faz a maioria das operações de outbound baseadas em evento não dar em nada.
 
-<!-- slide:center -->
 A resposta ao campo mesclado não é um campo mesclado melhor.
 
 # Você foi ano passado, vai de novo esse ano?
-<!-- /slide -->
 
 Volte à seção 3 por um segundo. A crítica lá era que a personalização virou imitação sintática de
 contexto: um nome, um cargo, um nome de empresa encaixados numa frase que serviria para qualquer
@@ -56,13 +54,11 @@ Personalização de verdade não é uma variável preenchida. É uma afirmação
 aquela pessoa, naquele momento. Isso custa contexto, e contexto é justamente o trabalho invisível
 que ninguém tinha tempo de fazer.
 
-<!-- slide -->
 ## O que dá para levar embora
 
 1. Um **artefato público** que já separa quem gasta dinheiro no seu setor
 2. Um **critério objetivo** que dá para checar sem opinião
 3. Uma **fonte de contato** para chegar na pessoa certa
-<!-- /slide -->
 
 Não é sobre Shopify, não é sobre beleza e cosmética, e não é sobre o Storeleads.
 

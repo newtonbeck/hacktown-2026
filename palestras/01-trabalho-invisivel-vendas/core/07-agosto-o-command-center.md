@@ -4,24 +4,24 @@ resumo: Vinte e cinco mil assinantes de um lado, uma lista fria do outro, e o so
 slide:
   layout: default
 notas: |
-  6 minutos.
-  Abrir pelo absurdo: 25.513 assinantes, e o time de vendas começando a semana
-  com lista fria. Deixar o absurdo respirar antes de explicar o software.
+  6 minutos. A seção não tem slide de capítulo: dizer "12 de agosto" e entrar
+  direto.
+  Abrir pela descoberta: 25.513 assinantes, e o time de vendas começando a
+  semana com lista fria. Deixar o absurdo respirar antes de explicar o software.
   No slide de 0-3-7: dizer as duas ressalvas SEM ser pedido. São elas que fazem
   o número valer. E não desenhar extrapolação.
-  Nada de walkthrough de código. Um slide, um número, seguir.
+  Nada de walkthrough de código. Um slide, um número, seguir. A segunda demo
+  mostra a lista chegando, não o código — cronometrar, e cortar se atrasar.
   PRINTS PENDENTES: a lista priorizada e a tela de fontes. Salvar como
   command-center-leads.png e command-center-fontes.png na pasta de assets desta
   palestra e inserir, depois do slide do diagrama, um bloco de slide para cada
   um com o marcador slide:image (mesma forma dos prints do deck 02).
 ---
 
-<!-- slide:capitulo -->
 # 12 de agosto
-<!-- /slide -->
 
 <!-- slide -->
-## O absurdo
+## A descoberta
 
 - Newsletter no Substack desde **setembro de 2024**
 - Mais de um post por mês desde **junho de 2025**
@@ -50,13 +50,18 @@ alguém juntar.**
 flowchart LR
   S1["Substack<br/>25.513 assinantes"] --> B
   S2["LinkedIn ads"] --> B
-  S3["Social orgânico"] --> B
-  S4["Landing pages<br/>home · cases · demo"] --> B
+  S3["Landing pages<br/>home · cases · demo"] --> B
   B["Sinal de<br/>primeira parte"] --> H{"Já está em<br/>negociação<br/>no HubSpot?"}
   H -- sim --> X["Fora<br/>da lista"]
   H -- não --> Q["Qualifica<br/>pelo ICP"]
   Q --> L[("Lista priorizada<br/>para vendas")]
 ```
+<!-- /slide -->
+
+<!-- slide:center -->
+Vamos ver o Command Center rodando.
+
+# Demo 2
 <!-- /slide -->
 
 São quatro passos, e nenhum deles é sofisticado.
